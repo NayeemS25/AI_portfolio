@@ -345,6 +345,84 @@ export class AuthService {
     }
   }
 
+  // Sign in with Google OAuth
+  static async signInWithGoogle(redirectTo?: string) {
+    try {
+      console.log('🔵 Starting Google OAuth signin...')
+      
+      const redirectUrl = redirectTo || window.location.origin
+      
+      const { data, error } = await supabase.auth.signInWithOAuth({
+        provider: 'google',
+        options: {
+          redirectTo: `${window.location.origin}/api/auth/callback?redirect=${encodeURIComponent(redirectUrl)}`,
+          queryParams: {
+            access_type: 'offline',
+            prompt: 'consent',
+          }
+        }
+      })
+
+      if (error) {
+        console.error('🔴 Google OAuth error:', error)
+        return {
+          success: false,
+          message: error.message || 'Failed to sign in with Google'
+        }
+      }
+
+      console.log('🟢 Google OAuth redirect initiated')
+      return {
+        success: true,
+        message: 'Redirecting to Google...',
+        data
+      }
+    } catch (error) {
+      console.error('🔴 Google OAuth failed:', error)
+      return {
+        success: false,
+        message: error instanceof Error ? error.message : 'Failed to sign in with Google'
+      }
+    }
+  }
+
+  // Sign in with GitHub OAuth
+  static async signInWithGitHub(redirectTo?: string) {
+    try {
+      console.log('🔵 Starting GitHub OAuth signin...')
+      
+      const redirectUrl = redirectTo || window.location.origin
+      
+      const { data, error } = await supabase.auth.signInWithOAuth({
+        provider: 'github',
+        options: {
+          redirectTo: `${window.location.origin}/api/auth/callback?redirect=${encodeURIComponent(redirectUrl)}`
+        }
+      })
+
+      if (error) {
+        console.error('🔴 GitHub OAuth error:', error)
+        return {
+          success: false,
+          message: error.message || 'Failed to sign in with GitHub'
+        }
+      }
+
+      console.log('🟢 GitHub OAuth redirect initiated')
+      return {
+        success: true,
+        message: 'Redirecting to GitHub...',
+        data
+      }
+    } catch (error) {
+      console.error('🔴 GitHub OAuth failed:', error)
+      return {
+        success: false,
+        message: error instanceof Error ? error.message : 'Failed to sign in with GitHub'
+      }
+    }
+  }
+
   // Request password reset (sends OTP via email)
   static async requestPasswordReset(email: string) {
     try {

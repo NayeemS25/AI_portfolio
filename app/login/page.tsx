@@ -10,7 +10,7 @@ import { useAuthGuard } from '../../lib/auth-guard';
 
 export default function LoginPage() {
   const { requireGuest } = useAuthGuard();
-  const { loading } = requireGuest('/'); // Redirect authenticated users to home page
+  requireGuest('/'); // Redirect authenticated users to home page
   
   const router = useRouter();
   const [formData, setFormData] = useState({
@@ -117,6 +117,46 @@ export default function LoginPage() {
 
   const handleForgotPassword = () => {
     router.push('/forgot-password');
+  };
+
+  const handleGoogleSignIn = async () => {
+    setIsLoading(true);
+    setMessage(null);
+    
+    try {
+      const redirectUrl = getRedirectUrl();
+      const result = await AuthService.signInWithGoogle(redirectUrl);
+      
+      if (!result.success) {
+        setMessage({ type: 'error', text: result.message });
+        setIsLoading(false);
+      }
+      // If successful, user will be redirected to Google OAuth
+    } catch (error) {
+      console.error('Google sign in error:', error);
+      setMessage({ type: 'error', text: 'Failed to sign in with Google. Please try again.' });
+      setIsLoading(false);
+    }
+  };
+
+  const handleGitHubSignIn = async () => {
+    setIsLoading(true);
+    setMessage(null);
+    
+    try {
+      const redirectUrl = getRedirectUrl();
+      const result = await AuthService.signInWithGitHub(redirectUrl);
+      
+      if (!result.success) {
+        setMessage({ type: 'error', text: result.message });
+        setIsLoading(false);
+      }
+      // If successful, user will be redirected to GitHub OAuth
+    } catch (error) {
+      console.error('GitHub sign in error:', error);
+      setMessage({ type: 'error', text: 'Failed to sign in with GitHub. Please try again.' });
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -253,6 +293,7 @@ export default function LoginPage() {
             <div className="mt-6 grid grid-cols-2 gap-3">
               <button
                 type="button"
+                onClick={handleGoogleSignIn}
                 disabled={isLoading}
                 className="w-full inline-flex justify-center py-3 px-4 border border-gray-300 rounded-lg shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
               >
@@ -267,6 +308,7 @@ export default function LoginPage() {
 
               <button
                 type="button"
+                onClick={handleGitHubSignIn}
                 disabled={isLoading}
                 className="w-full inline-flex justify-center py-3 px-4 border border-gray-300 rounded-lg shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
               >
