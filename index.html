@@ -1,15 +1,17 @@
 <!DOCTYPE html>
-<html lang="en" class="dark scroll-smooth">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nayeem S — AI & Machine Learning Engineer</title>
-    <meta name="description" content="Personal portfolio of Nayeem S — AI & Machine Learning Engineer specializing in NLP, Generative AI, Computer Vision, and Multilingual Audio pipelines.">
+    <title>Nayeem S | AI & Machine Learning Engineer Portfolio</title>
+    <meta name="description" content="Portfolio of Nayeem S — AI & Machine Learning Engineer specializing in NLP, Generative AI, Computer Vision, and Multilingual Speech Pipelines.">
+    <meta name="keywords" content="Nayeem S, AI Engineer, Machine Learning, Deep Learning, NLP, Computer Vision, PyTorch, Transformers">
+    <meta name="author" content="Nayeem S">
     
-    <!-- Google Fonts: Inter & Geist-like clean typography -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -19,30 +21,46 @@
             theme: {
                 extend: {
                     fontFamily: {
-                        sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
-                        mono: ['"JetBrains Mono"', 'monospace'],
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        mono: ['"Fira Code"', 'monospace'],
                     },
                     colors: {
-                        zinc: {
-                            50: '#fafafa',
-                            100: '#f4f4f5',
-                            200: '#e4e4e7',
-                            300: '#d4d4d8',
-                            400: '#a1a1aa',
-                            500: '#71717a',
-                            600: '#52525b',
-                            700: '#3f3f46',
-                            800: '#27272a',
-                            850: '#1f1f23',
-                            900: '#18181b',
-                            950: '#09090b',
+                        primary: {
+                            50: '#f0fdfa',
+                            400: '#2dd4bf',
+                            500: '#14b8a6',
+                            600: '#0d9488',
                         },
-                        brand: {
-                            primary: '#2563eb',   /* Clean Royal Blue */
-                            hover: '#1d4ed8',
-                            accent: '#6366f1',
-                            subtle: '#eff6ff',
-                            darksubtle: '#1e293b'
+                        cyber: {
+                            blue: '#38bdf8',
+                            indigo: '#818cf8',
+                            purple: '#a855f7',
+                            emerald: '#34d399',
+                            amber: '#fbbf24',
+                        },
+                        space: {
+                            950: '#05070e',
+                            900: '#0a0e1a',
+                            850: '#0f172a',
+                            800: '#151e36',
+                            750: '#1e294b',
+                            700: '#26345e'
+                        }
+                    },
+                    animation: {
+                        'float-slow': 'floating 6s ease-in-out infinite',
+                        'float-delayed': 'floating 7s ease-in-out 2s infinite',
+                        'pulse-glow': 'pulseGlow 4s ease-in-out infinite alternate',
+                        'spin-slow': 'spin 20s linear infinite',
+                    },
+                    keyframes: {
+                        floating: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        },
+                        pulseGlow: {
+                            '0%': { opacity: '0.3', transform: 'scale(0.95)' },
+                            '100%': { opacity: '0.6', transform: 'scale(1.05)' },
                         }
                     }
                 }
@@ -54,187 +72,268 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <style>
-        /* Smooth, minimalist scrollbar */
+        /* Smooth Modern Scrollbar */
         ::-webkit-scrollbar {
-            width: 6px;
+            width: 7px;
         }
         ::-webkit-scrollbar-track {
-            background: transparent;
+            background: #05070e;
         }
         ::-webkit-scrollbar-thumb {
-            background: #d4d4d8;
+            background: #1e294b;
             border-radius: 9999px;
         }
-        .dark ::-webkit-scrollbar-thumb {
-            background: #27272a;
-        }
         ::-webkit-scrollbar-thumb:hover {
-            background: #a1a1aa;
+            background: #38bdf8;
         }
 
-        /* Subtle grid lines */
-        .bg-subtle-grid {
-            background-size: 32px 32px;
-            background-image: linear-gradient(to right, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
-                              linear-gradient(to bottom, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
-        }
-        .dark .bg-subtle-grid {
-            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-                              linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+        /* Glassmorphism Surface */
+        .glass-panel {
+            background: rgba(15, 23, 42, 0.72);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
         }
 
-        /* Minimal Card Transition */
-        .clean-card {
-            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+        .glass-panel-hover {
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        .clean-card:hover {
-            transform: translateY(-2px);
+        .glass-panel-hover:hover {
+            transform: translateY(-4px);
+            border-color: rgba(56, 189, 248, 0.4);
+            box-shadow: 0 16px 36px -12px rgba(56, 189, 248, 0.18);
+        }
+
+        /* Ambient Mesh Background */
+        .ambient-mesh {
+            background-image: 
+                radial-gradient(at 10% 20%, rgba(56, 189, 248, 0.12) 0px, transparent 50%),
+                radial-gradient(at 90% 10%, rgba(168, 85, 247, 0.12) 0px, transparent 50%),
+                radial-gradient(at 50% 50%, rgba(52, 211, 153, 0.07) 0px, transparent 60%),
+                radial-gradient(at 80% 80%, rgba(56, 189, 248, 0.10) 0px, transparent 50%),
+                radial-gradient(at 20% 90%, rgba(129, 140, 248, 0.12) 0px, transparent 50%);
+        }
+
+        /* Subtle Technical Grid Overlay */
+        .tech-grid {
+            background-size: 36px 36px;
+            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+        }
+
+        /* Animated Gradient Text */
+        .gradient-text {
+            background: linear-gradient(135deg, #38bdf8 0%, #a855f7 50%, #34d399 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Typewriter Cursor */
+        .type-cursor::after {
+            content: '_';
+            animation: blinkCursor 0.9s infinite;
+            color: #38bdf8;
+            font-weight: 400;
+        }
+        @keyframes blinkCursor {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
         }
     </style>
 </head>
-<body class="bg-zinc-50 dark:bg-zinc-950 text-zinc-800 dark:text-zinc-200 font-sans antialiased min-h-screen selection:bg-zinc-900 selection:text-white dark:selection:bg-zinc-100 dark:selection:text-zinc-950">
+<body class="bg-space-950 text-slate-200 font-sans antialiased min-h-screen selection:bg-cyber-blue selection:text-black relative overflow-x-hidden">
 
-    <!-- Subtle Background Pattern -->
-    <div class="fixed inset-0 bg-subtle-grid pointer-events-none -z-10"></div>
+    <!-- Interactive Mouse-Responsive Particle Canvas -->
+    <canvas id="constellation-canvas" class="fixed inset-0 pointer-events-none z-0 opacity-60"></canvas>
 
-    <!-- Top Minimal Navigation -->
-    <header class="sticky top-0 z-40 w-full backdrop-blur-md bg-zinc-50/85 dark:bg-zinc-950/85 border-b border-zinc-200/80 dark:border-zinc-800/80 transition-colors">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+    <!-- Ambient Mesh Gradients -->
+    <div class="fixed inset-0 ambient-mesh tech-grid pointer-events-none -z-10"></div>
+
+    <!-- Floating Glowing Nebula Orbs -->
+    <div class="fixed top-12 left-1/4 w-[450px] h-[450px] bg-cyber-blue/10 rounded-full filter blur-[100px] pointer-events-none -z-10 animate-pulse-glow"></div>
+    <div class="fixed top-1/2 right-12 w-[400px] h-[400px] bg-cyber-purple/10 rounded-full filter blur-[100px] pointer-events-none -z-10 animate-pulse-glow" style="animation-delay: 2s;"></div>
+
+    <!-- Top Sticky Navigation -->
+    <header class="sticky top-0 z-40 w-full backdrop-blur-xl bg-space-950/80 border-b border-white/5 transition-all">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 h-18 py-3.5 flex items-center justify-between">
             
-            <!-- Left Branding -->
-            <a href="#hero" class="flex items-center gap-2.5 group">
-                <div class="w-8 h-8 rounded-lg bg-zinc-900 dark:bg-zinc-100 text-zinc-100 dark:text-zinc-900 flex items-center justify-center font-mono font-bold text-sm shadow-sm group-hover:scale-105 transition-transform">
-                    N
+            <!-- Logo -->
+            <a href="#hero" class="flex items-center gap-3 group">
+                <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-cyber-blue via-cyber-indigo to-cyber-purple p-[1px] shadow-lg shadow-cyber-blue/15 group-hover:scale-105 transition-transform">
+                    <div class="w-full h-full bg-space-950 rounded-[11px] flex items-center justify-center text-white font-mono font-bold text-sm">
+                        N
+                    </div>
                 </div>
                 <div class="flex flex-col">
-                    <span class="font-semibold text-sm tracking-tight text-zinc-900 dark:text-zinc-100">Nayeem S</span>
-                    <span class="text-[11px] text-zinc-500 dark:text-zinc-400 font-mono -mt-0.5">AI & ML Engineer</span>
+                    <span class="font-bold text-base tracking-tight text-white group-hover:text-cyber-blue transition-colors">
+                        NAYEEM<span class="text-cyber-blue">.AI</span>
+                    </span>
+                    <span class="text-[10px] font-mono text-slate-400 -mt-1 tracking-wider uppercase">AI & ML Engineer</span>
                 </div>
             </a>
 
-            <!-- Center Navigation Links -->
-            <nav class="hidden md:flex items-center gap-6 text-xs font-medium text-zinc-600 dark:text-zinc-400">
-                <a href="#projects" class="hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">Projects</a>
-                <a href="#experience" class="hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">Experience</a>
-                <a href="#playground" class="hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors flex items-center gap-1.5">
-                    <span class="w-1.5 h-1.5 rounded-full bg-blue-600 dark:bg-blue-400 animate-pulse"></span>
+            <!-- Desktop Nav Links -->
+            <nav class="hidden md:flex items-center gap-7 text-xs font-medium text-slate-300">
+                <a href="#projects" class="hover:text-cyber-blue transition-colors">Projects</a>
+                <a href="#experience" class="hover:text-cyber-blue transition-colors">Experience</a>
+                <a href="#playground" class="hover:text-cyber-blue transition-colors flex items-center gap-1.5">
+                    <span class="relative flex h-2 w-2">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyber-blue opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-cyber-blue"></span>
+                    </span>
                     AI Sandbox
                 </a>
-                <a href="#skills" class="hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">Skills</a>
-                <a href="#awards" class="hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">Recognition</a>
-                <a href="#contact" class="hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">Contact</a>
+                <a href="#skills" class="hover:text-cyber-blue transition-colors">Skills</a>
+                <a href="#awards" class="hover:text-cyber-blue transition-colors">Awards</a>
+                <a href="#contact" class="hover:text-cyber-blue transition-colors">Contact</a>
             </nav>
 
-            <!-- Right Utilities (Theme Toggle, Resume, Socials) -->
-            <div class="flex items-center gap-2.5">
-                
-                <!-- Light / Dark Mode Toggle -->
-                <button id="theme-toggle" onclick="toggleTheme()" class="w-8 h-8 rounded-lg flex items-center justify-center text-zinc-600 dark:text-zinc-400 hover:bg-zinc-200/60 dark:hover:bg-zinc-800 transition-colors text-xs" title="Toggle Theme">
-                    <i class="fas fa-moon hidden dark:inline"></i>
-                    <i class="fas fa-sun inline dark:hidden"></i>
-                </button>
-
-                <!-- GitHub -->
-                <a href="https://github.com/NayeemS25" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-lg flex items-center justify-center text-zinc-600 dark:text-zinc-400 hover:bg-zinc-200/60 dark:hover:bg-zinc-800 transition-colors text-sm" title="GitHub Profile">
+            <!-- Right Buttons -->
+            <div class="flex items-center gap-3">
+                <a href="https://github.com/NayeemS25" target="_blank" rel="noopener noreferrer" class="p-2 rounded-lg bg-space-850 hover:bg-space-800 text-slate-300 hover:text-white border border-white/10 transition-colors text-sm" title="GitHub">
                     <i class="fab fa-github"></i>
                 </a>
-
-                <!-- LinkedIn -->
-                <a href="https://www.linkedin.com/in/nayeems94/" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-lg flex items-center justify-center text-zinc-600 dark:text-zinc-400 hover:bg-zinc-200/60 dark:hover:bg-zinc-800 transition-colors text-sm" title="LinkedIn Profile">
+                <a href="https://www.linkedin.com/in/nayeems94/" target="_blank" rel="noopener noreferrer" class="p-2 rounded-lg bg-space-850 hover:bg-space-800 text-blue-400 hover:text-white border border-white/10 transition-colors text-sm" title="LinkedIn">
                     <i class="fab fa-linkedin"></i>
                 </a>
-
-                <!-- Resume Button -->
-                <button onclick="openResumeModal()" class="ml-1 px-3.5 py-1.5 rounded-lg bg-zinc-900 dark:bg-zinc-100 text-zinc-50 dark:text-zinc-900 text-xs font-semibold hover:bg-zinc-800 dark:hover:bg-zinc-200 shadow-sm transition-all flex items-center gap-1.5">
-                    <i class="fas fa-arrow-down-to-line text-[10px]"></i>
+                <button onclick="openResumeModal()" class="px-3.5 py-1.5 rounded-lg bg-gradient-to-r from-cyber-blue to-cyber-indigo text-slate-950 font-bold text-xs hover:shadow-lg hover:shadow-cyber-blue/20 hover:brightness-110 transition-all flex items-center gap-1.5">
+                    <i class="fas fa-file-pdf"></i>
                     <span>Resume</span>
                 </button>
 
-                <!-- Mobile Menu Button -->
-                <button id="mobile-toggle" onclick="toggleMobileNav()" class="md:hidden w-8 h-8 rounded-lg flex items-center justify-center text-zinc-600 dark:text-zinc-400 hover:bg-zinc-200 dark:hover:bg-zinc-800 text-sm">
-                    <i class="fas fa-bars"></i>
+                <!-- Mobile Hamburger -->
+                <button id="mobile-btn" onclick="toggleMobileNav()" class="md:hidden p-2 rounded-lg bg-space-850 text-slate-300 hover:text-white border border-white/10">
+                    <i class="fas fa-bars text-sm"></i>
                 </button>
             </div>
 
         </div>
 
-        <!-- Mobile Dropdown Navigation -->
-        <div id="mobile-nav" class="hidden md:hidden px-6 py-4 bg-zinc-50 dark:bg-zinc-950 border-b border-zinc-200 dark:border-zinc-800 text-xs font-medium space-y-3">
-            <a href="#projects" class="block text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100" onclick="toggleMobileNav()">Projects</a>
-            <a href="#experience" class="block text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100" onclick="toggleMobileNav()">Experience</a>
-            <a href="#playground" class="block text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100" onclick="toggleMobileNav()">AI Sandbox</a>
-            <a href="#skills" class="block text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100" onclick="toggleMobileNav()">Skills</a>
-            <a href="#awards" class="block text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100" onclick="toggleMobileNav()">Recognition</a>
-            <a href="#contact" class="block text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100" onclick="toggleMobileNav()">Contact</a>
+        <!-- Mobile Drawer -->
+        <div id="mobile-nav" class="hidden md:hidden px-6 py-4 bg-space-900/95 border-b border-white/10 text-xs font-medium space-y-3">
+            <a href="#projects" class="block text-slate-300 hover:text-cyber-blue" onclick="toggleMobileNav()">Projects</a>
+            <a href="#experience" class="block text-slate-300 hover:text-cyber-blue" onclick="toggleMobileNav()">Experience</a>
+            <a href="#playground" class="block text-cyber-blue hover:text-white" onclick="toggleMobileNav()">AI Sandbox</a>
+            <a href="#skills" class="block text-slate-300 hover:text-cyber-blue" onclick="toggleMobileNav()">Skills</a>
+            <a href="#awards" class="block text-slate-300 hover:text-cyber-blue" onclick="toggleMobileNav()">Awards & Certs</a>
+            <a href="#contact" class="block text-slate-300 hover:text-cyber-blue" onclick="toggleMobileNav()">Contact</a>
         </div>
     </header>
 
 
-    <main class="max-w-5xl mx-auto px-4 sm:px-6 py-12 space-y-24">
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 py-10 space-y-24 relative z-10">
 
-        <!-- HERO SECTION: Clean, Minimal, Impactful -->
-        <section id="hero" class="pt-6 sm:pt-10">
-            <div class="flex flex-col-reverse sm:flex-row items-start justify-between gap-8">
+        <!-- HERO SECTION -->
+        <section id="hero" class="pt-4 sm:pt-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
                 
-                <!-- Left Details -->
-                <div class="flex-1 space-y-4">
+                <!-- Left (7 Cols) -->
+                <div class="lg:col-span-7 space-y-5">
                     
-                    <!-- Availability Tag -->
-                    <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded-md bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800/60 text-emerald-700 dark:text-emerald-400 text-xs font-medium">
-                        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                        <span>Available for AI / ML Engineer roles & research</span>
+                    <!-- Availability Pill -->
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-space-850 border border-cyber-blue/30 text-xs font-mono text-cyber-blue shadow-sm">
+                        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                        <span>Available for AI / ML Engineer Roles</span>
                     </div>
 
-                    <!-- Main Name & Title -->
-                    <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-zinc-900 dark:text-zinc-50 leading-tight">
-                        Nayeem S
+                    <!-- Main Name Heading -->
+                    <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-white leading-tight">
+                        Hi, I'm <span class="gradient-text">Nayeem S</span>
                     </h1>
 
-                    <p class="text-base sm:text-lg font-medium text-zinc-700 dark:text-zinc-300 font-mono">
-                        AI Engineer <span class="text-zinc-400 dark:text-zinc-600">/</span> Machine Learning Engineer <span class="text-zinc-400 dark:text-zinc-600">/</span> Data Scientist
-                    </p>
-
-                    <!-- Concise Bio -->
-                    <p class="text-sm sm:text-base text-zinc-600 dark:text-zinc-400 leading-relaxed max-w-2xl">
-                        AI Engineer with hands-on experience building and deploying end-to-end applications across <strong class="text-zinc-900 dark:text-zinc-200 font-semibold">Generative AI, Multilingual NLP, and Computer Vision</strong>. Currently engineering neural lip-sync models and regional speech pipelines at Ninja Media Creations.
-                    </p>
-
-                    <!-- Quick Highlight Badges -->
-                    <div class="flex flex-wrap gap-2 pt-2">
-                        <span class="px-2.5 py-1 rounded-md bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-xs text-zinc-600 dark:text-zinc-400 font-mono">
-                            <i class="fas fa-trophy text-amber-500 mr-1.5"></i>2x Hackathon Placements
-                        </span>
-                        <span class="px-2.5 py-1 rounded-md bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-xs text-zinc-600 dark:text-zinc-400 font-mono">
-                            <i class="fab fa-github text-blue-500 mr-1.5"></i>18+ Repositories
-                        </span>
-                        <span class="px-2.5 py-1 rounded-md bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-xs text-zinc-600 dark:text-zinc-400 font-mono">
-                            <i class="fas fa-graduation-cap text-emerald-500 mr-1.5"></i>B.Tech AI & DS (CGPA 7.5)
-                        </span>
+                    <!-- Dynamic Animated Typewriter -->
+                    <div class="text-lg sm:text-xl font-mono text-slate-200 min-h-[2.25rem] flex items-center">
+                        <span class="text-cyber-blue mr-2">&gt;</span>
+                        <span id="typewriter" class="type-cursor text-cyan-300"></span>
                     </div>
 
-                    <!-- Hero Action Buttons -->
-                    <div class="flex flex-wrap items-center gap-3 pt-4">
-                        <a href="#projects" class="px-4 py-2 rounded-lg bg-zinc-900 dark:bg-zinc-100 text-zinc-50 dark:text-zinc-900 text-xs font-semibold hover:bg-zinc-800 dark:hover:bg-zinc-200 shadow-sm transition-all flex items-center gap-2">
-                            <span>View Featured Projects</span>
-                            <i class="fas fa-arrow-down text-[10px]"></i>
+                    <!-- Concise Bio -->
+                    <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-xl">
+                        AI Engineer with hands-on experience building and deploying end-to-end intelligent systems across <strong class="text-white">Generative AI, Multilingual NLP, and Computer Vision</strong>. Currently developing neural lip-sync video generation and regional speech inference at <span class="text-cyber-blue">Ninja Media Creations</span>.
+                    </p>
+
+                    <!-- Metric Counter Badges -->
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2 font-mono text-xs">
+                        <div class="p-3 rounded-xl bg-space-850/80 border border-white/5">
+                            <div class="text-[10px] text-slate-400 uppercase">Hackathons</div>
+                            <div class="text-base font-bold text-amber-400 mt-0.5"><i class="fas fa-trophy mr-1 text-xs"></i> 2x Placements</div>
+                            <div class="text-[10px] text-slate-500">Runner-Up & 3rd</div>
+                        </div>
+                        <div class="p-3 rounded-xl bg-space-850/80 border border-white/5">
+                            <div class="text-[10px] text-slate-400 uppercase">GitHub Code</div>
+                            <div class="text-base font-bold text-cyber-blue mt-0.5"><i class="fab fa-github mr-1 text-xs"></i> 18+ Projects</div>
+                            <div class="text-[10px] text-slate-500">NLP & Vision</div>
+                        </div>
+                        <div class="p-3 rounded-xl bg-space-850/80 border border-white/5 col-span-2 sm:col-span-1">
+                            <div class="text-[10px] text-slate-400 uppercase">Academics</div>
+                            <div class="text-base font-bold text-emerald-400 mt-0.5"><i class="fas fa-graduation-cap mr-1 text-xs"></i> 7.5 CGPA</div>
+                            <div class="text-[10px] text-slate-500">B.Tech AI & DS</div>
+                        </div>
+                    </div>
+
+                    <!-- CTA Buttons -->
+                    <div class="flex flex-wrap items-center gap-3 pt-3">
+                        <a href="#projects" class="px-5 py-3 rounded-xl bg-gradient-to-r from-cyber-blue via-cyan-400 to-cyber-indigo text-space-950 font-bold text-xs tracking-wide hover:shadow-xl hover:shadow-cyber-blue/25 hover:scale-[1.02] transition-all flex items-center gap-2">
+                            <i class="fas fa-rocket text-xs"></i>
+                            <span>Explore Projects</span>
                         </a>
-                        <a href="#contact" class="px-4 py-2 rounded-lg bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-zinc-800 dark:text-zinc-200 text-xs font-medium hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors flex items-center gap-2">
-                            <i class="far fa-envelope text-zinc-400"></i>
-                            <span>nayeemfawaz30@gmail.com</span>
+                        <a href="#playground" class="px-5 py-3 rounded-xl bg-space-850 hover:bg-space-800 text-slate-200 border border-cyber-blue/30 font-semibold text-xs hover:border-cyber-blue transition-all flex items-center gap-2">
+                            <i class="fas fa-wand-magic-sparkles text-cyber-blue"></i>
+                            <span>Try Live Sandbox</span>
+                        </a>
+                        <a href="#contact" class="px-4 py-3 rounded-xl bg-transparent hover:bg-space-800/60 text-slate-400 hover:text-white text-xs font-medium transition-colors">
+                            <span>Get in Touch →</span>
                         </a>
                     </div>
 
                 </div>
 
-                <!-- Right Avatar & Location -->
-                <div class="flex flex-col items-start sm:items-end gap-3 shrink-0">
-                    <div class="relative">
-                        <img src="https://avatars.githubusercontent.com/u/148206438?v=4" alt="Nayeem S" class="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl border border-zinc-200 dark:border-zinc-800 object-cover shadow-sm bg-zinc-100 dark:bg-zinc-900">
-                        <div class="absolute -bottom-1 -right-1 w-4 h-4 bg-emerald-500 border-2 border-white dark:border-zinc-950 rounded-full" title="Active"></div>
-                    </div>
-                    <div class="text-left sm:text-right font-mono text-xs text-zinc-500 dark:text-zinc-400">
-                        <div>Chennai, India 🇮🇳</div>
-                        <div class="text-[11px] text-zinc-400 dark:text-zinc-500 mt-0.5">+91 9003722241</div>
+                <!-- Right (5 Cols): Interactive Interactive Terminal / Profile Card -->
+                <div class="lg:col-span-5">
+                    <div class="glass-panel rounded-2xl p-5 border border-white/10 shadow-2xl relative group overflow-hidden animate-float-slow">
+                        
+                        <!-- Header Bar -->
+                        <div class="flex items-center justify-between border-b border-white/10 pb-4 mb-4">
+                            <div class="flex items-center gap-3">
+                                <div class="relative">
+                                    <img src="https://avatars.githubusercontent.com/u/148206438?v=4" alt="Nayeem S" class="w-14 h-14 rounded-2xl ring-2 ring-cyber-blue/40 object-cover bg-space-900">
+                                    <span class="absolute -bottom-1 -right-1 w-3.5 h-3.5 bg-emerald-500 border-2 border-space-900 rounded-full"></span>
+                                </div>
+                                <div>
+                                    <h2 class="font-bold text-white text-base">Nayeem S</h2>
+                                    <p class="text-xs font-mono text-cyber-blue">AI & ML Engineer</p>
+                                    <p class="text-[11px] text-slate-400">Chennai, India • B.Tech AI & DS</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-1.5">
+                                <span class="w-2.5 h-2.5 rounded-full bg-red-500/80"></span>
+                                <span class="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></span>
+                                <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/80"></span>
+                            </div>
+                        </div>
+
+                        <!-- Mini Interactive CLI inside card -->
+                        <div class="bg-space-900/90 rounded-xl p-3.5 border border-white/5 font-mono text-xs text-slate-300 space-y-2">
+                            <div class="flex items-center justify-between text-slate-500 text-[10px] pb-1 border-b border-white/5">
+                                <span>terminal — zsh</span>
+                                <span class="text-emerald-400">● online</span>
+                            </div>
+                            
+                            <div id="cli-output" class="text-[11px] space-y-1 max-h-[140px] overflow-y-auto pr-1">
+                                <div class="text-cyber-blue">$ python -m nayeem.status</div>
+                                <div class="text-emerald-400">✔ Ready for AI/ML roles</div>
+                                <div class="text-slate-400">Models: MuseTalk, DistilRoBERTa, YOLOv8</div>
+                                <div class="text-slate-400">Stack: PyTorch, Sarvam AI, Flask, RAG</div>
+                            </div>
+
+                            <div class="pt-2 flex flex-wrap gap-1 text-[10px]">
+                                <button onclick="runCli('skills')" class="px-2 py-0.5 rounded bg-space-800 hover:bg-cyber-blue/20 hover:text-cyber-blue text-slate-300 transition-colors">--skills</button>
+                                <button onclick="runCli('internship')" class="px-2 py-0.5 rounded bg-space-800 hover:bg-cyber-blue/20 hover:text-cyber-blue text-slate-300 transition-colors">--internship</button>
+                                <button onclick="runCli('awards')" class="px-2 py-0.5 rounded bg-space-800 hover:bg-cyber-blue/20 hover:text-cyber-blue text-slate-300 transition-colors">--awards</button>
+                                <button onclick="runCli('clear')" class="px-2 py-0.5 rounded bg-space-800 hover:bg-red-500/20 hover:text-red-400 text-slate-400 transition-colors">clear</button>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
 
@@ -242,63 +341,57 @@
         </section>
 
 
-        <!-- FEATURED PROJECTS: Clean, Grid Layout -->
+        <!-- FEATURED PROJECTS SHOWCASE -->
         <section id="projects" class="space-y-8">
             
-            <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-zinc-200 dark:border-zinc-800 pb-4">
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-white/10 pb-4">
                 <div>
-                    <h2 class="text-xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100 flex items-center gap-2">
-                        <span>Featured Projects</span>
-                    </h2>
-                    <p class="text-xs text-zinc-500 dark:text-zinc-400 mt-1">
-                        High-performance AI pipelines, transformer fine-tuning, and statistical data solutions.
-                    </p>
+                    <span class="text-xs font-mono uppercase tracking-widest text-cyber-blue bg-cyber-blue/10 px-2.5 py-1 rounded-full border border-cyber-blue/20">Featured Work</span>
+                    <h2 class="text-2xl sm:text-3xl font-bold text-white mt-2">Projects & AI Deployments</h2>
                 </div>
 
-                <!-- Category Filter Pills -->
-                <div class="flex items-center gap-1.5 p-1 bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-lg text-xs">
-                    <button onclick="filterCategory('all')" class="filter-pill active px-2.5 py-1 rounded-md bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 font-semibold shadow-xs transition-all" data-cat="all">All</button>
-                    <button onclick="filterCategory('genai')" class="filter-pill px-2.5 py-1 rounded-md text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 font-medium transition-all" data-cat="genai">GenAI & NLP</button>
-                    <button onclick="filterCategory('cv')" class="filter-pill px-2.5 py-1 rounded-md text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 font-medium transition-all" data-cat="cv">Computer Vision</button>
-                    <button onclick="filterCategory('ml')" class="filter-pill px-2.5 py-1 rounded-md text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 font-medium transition-all" data-cat="ml">ML & Stats</button>
+                <!-- Filter Tabs -->
+                <div class="flex flex-wrap gap-1.5 p-1 bg-space-850 rounded-xl border border-white/5 text-xs font-mono">
+                    <button onclick="filterProjects('all')" class="proj-filter active px-3 py-1.5 rounded-lg bg-cyber-blue text-space-950 font-bold transition-all" data-f="all">All (7)</button>
+                    <button onclick="filterProjects('genai')" class="proj-filter px-3 py-1.5 rounded-lg text-slate-300 hover:text-white transition-all" data-f="genai">GenAI & NLP</button>
+                    <button onclick="filterProjects('cv')" class="proj-filter px-3 py-1.5 rounded-lg text-slate-300 hover:text-white transition-all" data-f="cv">Vision & YOLO</button>
+                    <button onclick="filterProjects('ml')" class="proj-filter px-3 py-1.5 rounded-lg text-slate-300 hover:text-white transition-all" data-f="ml">ML & Stats</button>
                 </div>
             </div>
 
             <!-- Projects Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="project-cards-container">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="projects-container">
 
                 <!-- 1. AI Student Portfolio Generator -->
-                <div class="project-item clean-card rounded-xl bg-white dark:bg-zinc-900/70 border border-zinc-200 dark:border-zinc-800 p-5 flex flex-col justify-between hover:border-zinc-300 dark:hover:border-zinc-700 hover:shadow-xs" data-category="genai">
+                <div class="project-card glass-panel glass-panel-hover rounded-2xl p-6 border border-amber-500/30 flex flex-col justify-between" data-cat="genai">
                     <div>
-                        <div class="flex items-center justify-between gap-2 mb-3">
-                            <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded text-[11px] font-medium bg-amber-50 dark:bg-amber-950/40 text-amber-700 dark:text-amber-400 border border-amber-200 dark:border-amber-800/50 font-mono">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="px-2.5 py-0.5 rounded-full bg-amber-500/15 border border-amber-500/30 text-amber-300 text-[11px] font-mono flex items-center gap-1.5">
                                 <i class="fas fa-medal text-xs"></i> Runner-Up Impact-A-Thon
                             </span>
-                            <span class="text-[11px] font-mono text-zinc-400">09/2025</span>
+                            <span class="text-xs font-mono text-slate-500">09/2025</span>
                         </div>
 
-                        <h3 class="text-base font-bold text-zinc-900 dark:text-zinc-100 mb-2">
+                        <h3 class="text-lg font-bold text-white mb-2 group-hover:text-cyber-blue transition-colors">
                             AI Student Portfolio Generator
                         </h3>
 
-                        <p class="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed mb-4">
-                            Automated AI platform built during a 24-hour national hackathon. Parses student resumes via <strong class="text-zinc-800 dark:text-zinc-200">N8N webhooks</strong>, extracts structured skills into <strong class="text-zinc-800 dark:text-zinc-200">Supabase</strong>, and compiles dynamic, responsive web portfolios automatically.
+                        <p class="text-xs text-slate-300 leading-relaxed mb-4">
+                            Automated AI platform developed during a 24-hour national hackathon. Parses student resumes via <strong class="text-white font-semibold">N8N webhooks</strong>, extracts structured skills into <strong class="text-white font-semibold">Supabase</strong>, and automatically compiles dynamic responsive web portfolios.
                         </p>
                     </div>
 
                     <div>
-                        <div class="flex flex-wrap gap-1.5 mb-4 font-mono text-[11px]">
-                            <span class="px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300">N8N</span>
-                            <span class="px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300">Supabase</span>
-                            <span class="px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300">AI Webhooks</span>
-                            <span class="px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300">Next.js</span>
+                        <div class="flex flex-wrap gap-1.5 mb-4 font-mono text-[10px]">
+                            <span class="px-2 py-0.5 rounded bg-space-850 text-amber-300 border border-amber-500/20">N8N</span>
+                            <span class="px-2 py-0.5 rounded bg-space-850 text-emerald-300 border border-emerald-500/20">Supabase</span>
+                            <span class="px-2 py-0.5 rounded bg-space-850 text-cyber-blue border border-cyber-blue/20">AI Webhooks</span>
+                            <span class="px-2 py-0.5 rounded bg-space-850 text-purple-300 border border-purple-500/20">Next.js</span>
                         </div>
 
-                        <div class="flex items-center gap-2 pt-3 border-t border-zinc-100 dark:border-zinc-800/80">
-                            <a href="https://github.com/NayeemS25/AI-portfolio-Generator" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-semibold text-zinc-900 dark:text-zinc-100 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                                <i class="fab fa-github"></i>
-                                <span>Source Code</span>
-                                <i class="fas fa-arrow-up-right-from-square text-[9px] ml-0.5 opacity-70"></i>
+                        <div class="pt-3 border-t border-white/5">
+                            <a href="https://github.com/NayeemS25/AI-portfolio-Generator" target="_blank" rel="noopener noreferrer" class="w-full py-2 rounded-lg bg-space-850 hover:bg-space-800 text-white text-xs font-semibold text-center border border-white/10 flex items-center justify-center gap-1.5 transition-colors">
+                                <i class="fab fa-github"></i> View GitHub Code
                             </a>
                         </div>
                     </div>
@@ -306,37 +399,35 @@
 
 
                 <!-- 2. Crime Data Analysis -->
-                <div class="project-item clean-card rounded-xl bg-white dark:bg-zinc-900/70 border border-zinc-200 dark:border-zinc-800 p-5 flex flex-col justify-between hover:border-zinc-300 dark:hover:border-zinc-700 hover:shadow-xs" data-category="ml">
+                <div class="project-card glass-panel glass-panel-hover rounded-2xl p-6 border border-purple-500/30 flex flex-col justify-between" data-cat="ml">
                     <div>
-                        <div class="flex items-center justify-between gap-2 mb-3">
-                            <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded text-[11px] font-medium bg-blue-50 dark:bg-blue-950/40 text-blue-700 dark:text-blue-400 border border-blue-200 dark:border-blue-800/50 font-mono">
-                                <i class="fas fa-chart-pie text-xs"></i> Statistical Analytics
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="px-2.5 py-0.5 rounded-full bg-purple-500/15 border border-purple-500/30 text-purple-300 text-[11px] font-mono flex items-center gap-1.5">
+                                <i class="fas fa-chart-pie text-xs"></i> Analytics & Stats
                             </span>
-                            <span class="text-[11px] font-mono text-zinc-400">09/2025</span>
+                            <span class="text-xs font-mono text-slate-500">09/2025</span>
                         </div>
 
-                        <h3 class="text-base font-bold text-zinc-900 dark:text-zinc-100 mb-2">
+                        <h3 class="text-lg font-bold text-white mb-2">
                             Crime Data Analysis & Trend Prediction
                         </h3>
 
-                        <p class="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed mb-4">
-                            Statistical modeling on multi-state Indian crime datasets. Applied <strong class="text-zinc-800 dark:text-zinc-200">ANOVA and hypothesis testing</strong> to identify statistically significant patterns, built Scikit-learn predictive models, and created executive <strong class="text-zinc-800 dark:text-zinc-200">Power BI</strong> dashboards.
+                        <p class="text-xs text-slate-300 leading-relaxed mb-4">
+                            Statistical modeling on multi-state Indian crime datasets. Applied <strong class="text-white font-semibold">ANOVA & hypothesis testing</strong> to identify statistically significant regional variance, built Scikit-learn regression models, and developed executive <strong class="text-white font-semibold">Power BI</strong> dashboards.
                         </p>
                     </div>
 
                     <div>
-                        <div class="flex flex-wrap gap-1.5 mb-4 font-mono text-[11px]">
-                            <span class="px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300">Power BI</span>
-                            <span class="px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300">ANOVA</span>
-                            <span class="px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300">Scikit-learn</span>
-                            <span class="px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300">Pandas</span>
+                        <div class="flex flex-wrap gap-1.5 mb-4 font-mono text-[10px]">
+                            <span class="px-2 py-0.5 rounded bg-space-850 text-purple-300 border border-purple-500/20">Power BI</span>
+                            <span class="px-2 py-0.5 rounded bg-space-850 text-amber-300 border border-amber-500/20">ANOVA Stats</span>
+                            <span class="px-2 py-0.5 rounded bg-space-850 text-cyber-blue border border-cyber-blue/20">Scikit-learn</span>
+                            <span class="px-2 py-0.5 rounded bg-space-850 text-emerald-300 border border-emerald-500/20">Pandas</span>
                         </div>
 
-                        <div class="flex items-center gap-2 pt-3 border-t border-zinc-100 dark:border-zinc-800/80">
-                            <a href="https://github.com/NayeemS25/Crime-Data-Analysis" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-semibold text-zinc-900 dark:text-zinc-100 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                                <i class="fab fa-github"></i>
-                                <span>Source Code</span>
-                                <i class="fas fa-arrow-up-right-from-square text-[9px] ml-0.5 opacity-70"></i>
+                        <div class="pt-3 border-t border-white/5">
+                            <a href="https://github.com/NayeemS25/Crime-Data-Analysis" target="_blank" rel="noopener noreferrer" class="w-full py-2 rounded-lg bg-space-850 hover:bg-space-800 text-white text-xs font-semibold text-center border border-white/10 flex items-center justify-center gap-1.5 transition-colors">
+                                <i class="fab fa-github"></i> View GitHub Code
                             </a>
                         </div>
                     </div>
@@ -344,41 +435,39 @@
 
 
                 <!-- 3. Legal Connect -->
-                <div class="project-item clean-card rounded-xl bg-white dark:bg-zinc-900/70 border border-zinc-200 dark:border-zinc-800 p-5 flex flex-col justify-between hover:border-zinc-300 dark:hover:border-zinc-700 hover:shadow-xs" data-category="genai">
+                <div class="project-card glass-panel glass-panel-hover rounded-2xl p-6 border border-cyan-500/30 flex flex-col justify-between" data-cat="genai">
                     <div>
-                        <div class="flex items-center justify-between gap-2 mb-3">
-                            <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded text-[11px] font-medium bg-amber-50 dark:bg-amber-950/40 text-amber-700 dark:text-amber-400 border border-amber-200 dark:border-amber-800/50 font-mono">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="px-2.5 py-0.5 rounded-full bg-amber-500/15 border border-amber-500/30 text-amber-300 text-[11px] font-mono flex items-center gap-1.5">
                                 <i class="fas fa-trophy text-xs"></i> 3rd Prize National Hackathon
                             </span>
-                            <span class="text-[11px] font-mono text-zinc-400">10/2025</span>
+                            <span class="text-xs font-mono text-slate-500">10/2025</span>
                         </div>
 
-                        <h3 class="text-base font-bold text-zinc-900 dark:text-zinc-100 mb-2">
+                        <h3 class="text-lg font-bold text-white mb-2">
                             Legal Connect — AI Legal Research Assistant
                         </h3>
 
-                        <p class="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed mb-4">
-                            AI-powered legal research platform leveraging <strong class="text-zinc-800 dark:text-zinc-200">NLP & RAG</strong> for case retrieval and summarization. Deployed a Python <strong class="text-zinc-800 dark:text-zinc-200">Flask REST API</strong> microservice for court case outcome prediction and entity extraction.
+                        <p class="text-xs text-slate-300 leading-relaxed mb-4">
+                            AI-powered legal platform using <strong class="text-white font-semibold">NLP & RAG</strong> for case retrieval and summarization. Built a Python <strong class="text-white font-semibold">Flask REST microservice</strong> for court case outcome prediction using TF-IDF and Scikit-learn models.
                         </p>
                     </div>
 
                     <div>
-                        <div class="flex flex-wrap gap-1.5 mb-4 font-mono text-[11px]">
-                            <span class="px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300">Python</span>
-                            <span class="px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300">Flask API</span>
-                            <span class="px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300">RAG</span>
-                            <span class="px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300">NLP</span>
-                            <span class="px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300">Supabase</span>
+                        <div class="flex flex-wrap gap-1.5 mb-4 font-mono text-[10px]">
+                            <span class="px-2 py-0.5 rounded bg-space-850 text-cyber-blue border border-cyber-blue/20">Python</span>
+                            <span class="px-2 py-0.5 rounded bg-space-850 text-cyber-blue border border-cyber-blue/20">Flask</span>
+                            <span class="px-2 py-0.5 rounded bg-space-850 text-purple-300 border border-purple-500/20">RAG</span>
+                            <span class="px-2 py-0.5 rounded bg-space-850 text-emerald-300 border border-emerald-500/20">NLP</span>
+                            <span class="px-2 py-0.5 rounded bg-space-850 text-cyan-300 border border-cyan-500/20">Supabase</span>
                         </div>
 
-                        <div class="flex items-center gap-4 pt-3 border-t border-zinc-100 dark:border-zinc-800/80">
-                            <a href="https://github.com/NayeemS25/Legal_Connect" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-semibold text-zinc-900 dark:text-zinc-100 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                                <i class="fab fa-github"></i>
-                                <span>Source Code</span>
-                                <i class="fas fa-arrow-up-right-from-square text-[9px] ml-0.5 opacity-70"></i>
+                        <div class="flex items-center gap-2 pt-3 border-t border-white/5">
+                            <a href="https://github.com/NayeemS25/Legal_Connect" target="_blank" rel="noopener noreferrer" class="flex-1 py-2 rounded-lg bg-space-850 hover:bg-space-800 text-white text-xs font-semibold text-center border border-white/10 flex items-center justify-center gap-1.5 transition-colors">
+                                <i class="fab fa-github"></i> Code
                             </a>
-                            <a href="#playground" class="inline-flex items-center gap-1 text-xs font-medium text-blue-600 dark:text-blue-400 hover:underline">
-                                <i class="fas fa-play text-[9px]"></i> Try Demo
+                            <a href="#playground" class="px-3 py-2 rounded-lg bg-cyber-blue/10 hover:bg-cyber-blue/20 text-cyber-blue text-xs font-semibold border border-cyber-blue/30 flex items-center gap-1 transition-colors">
+                                <i class="fas fa-play text-[9px]"></i> Demo
                             </a>
                         </div>
                     </div>
@@ -386,40 +475,38 @@
 
 
                 <!-- 4. Text Emotion Detection -->
-                <div class="project-item clean-card rounded-xl bg-white dark:bg-zinc-900/70 border border-zinc-200 dark:border-zinc-800 p-5 flex flex-col justify-between hover:border-zinc-300 dark:hover:border-zinc-700 hover:shadow-xs" data-category="genai">
+                <div class="project-card glass-panel glass-panel-hover rounded-2xl p-6 border border-white/10 flex flex-col justify-between" data-cat="genai">
                     <div>
-                        <div class="flex items-center justify-between gap-2 mb-3">
-                            <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded text-[11px] font-medium bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800/50 font-mono">
-                                <i class="fas fa-cloud-arrow-up text-xs"></i> Hugging Face Deployed
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="px-2.5 py-0.5 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-300 text-[11px] font-mono flex items-center gap-1.5">
+                                <i class="fas fa-cloud-arrow-up text-xs"></i> Deployed on HF Hub
                             </span>
-                            <span class="text-[11px] font-mono text-zinc-400">05/2025</span>
+                            <span class="text-xs font-mono text-slate-500">05/2025</span>
                         </div>
 
-                        <h3 class="text-base font-bold text-zinc-900 dark:text-zinc-100 mb-2">
+                        <h3 class="text-lg font-bold text-white mb-2">
                             Text Emotion Detection with Transformers
                         </h3>
 
-                        <p class="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed mb-4">
-                            Fine-tuned <strong class="text-zinc-800 dark:text-zinc-200">DistilRoBERTa</strong> on Google's GoEmotions benchmark to classify 28 granular emotion categories. Built end-to-end tokenization and training pipelines, published to Hugging Face Hub for live inference.
+                        <p class="text-xs text-slate-300 leading-relaxed mb-4">
+                            Fine-tuned <strong class="text-white font-semibold">DistilRoBERTa</strong> on Google's GoEmotions benchmark to classify 28 emotion categories. Built end-to-end tokenization and training pipelines, published to Hugging Face Hub for real-time inference.
                         </p>
                     </div>
 
                     <div>
-                        <div class="flex flex-wrap gap-1.5 mb-4 font-mono text-[11px]">
-                            <span class="px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300">DistilRoBERTa</span>
-                            <span class="px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300">Hugging Face</span>
-                            <span class="px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300">PyTorch</span>
-                            <span class="px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300">GoEmotions</span>
+                        <div class="flex flex-wrap gap-1.5 mb-4 font-mono text-[10px]">
+                            <span class="px-2 py-0.5 rounded bg-space-850 text-cyber-blue border border-cyber-blue/20">DistilRoBERTa</span>
+                            <span class="px-2 py-0.5 rounded bg-space-850 text-purple-300 border border-purple-500/20">Hugging Face</span>
+                            <span class="px-2 py-0.5 rounded bg-space-850 text-amber-300 border border-amber-500/20">PyTorch</span>
+                            <span class="px-2 py-0.5 rounded bg-space-850 text-emerald-300 border border-emerald-500/20">GoEmotions</span>
                         </div>
 
-                        <div class="flex items-center gap-4 pt-3 border-t border-zinc-100 dark:border-zinc-800/80">
-                            <a href="https://github.com/NayeemS25/text-emotion-classifier" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-semibold text-zinc-900 dark:text-zinc-100 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                                <i class="fab fa-github"></i>
-                                <span>Source Code</span>
-                                <i class="fas fa-arrow-up-right-from-square text-[9px] ml-0.5 opacity-70"></i>
+                        <div class="flex items-center gap-2 pt-3 border-t border-white/5">
+                            <a href="https://github.com/NayeemS25/text-emotion-classifier" target="_blank" rel="noopener noreferrer" class="flex-1 py-2 rounded-lg bg-space-850 hover:bg-space-800 text-white text-xs font-semibold text-center border border-white/10 flex items-center justify-center gap-1.5 transition-colors">
+                                <i class="fab fa-github"></i> Code
                             </a>
-                            <a href="#playground" class="inline-flex items-center gap-1 text-xs font-medium text-blue-600 dark:text-blue-400 hover:underline">
-                                <i class="fas fa-bolt text-[9px]"></i> Live Sandbox
+                            <a href="#playground" class="px-3 py-2 rounded-lg bg-cyber-blue/10 hover:bg-cyber-blue/20 text-cyber-blue text-xs font-semibold border border-cyber-blue/30 flex items-center gap-1 transition-colors">
+                                <i class="fas fa-bolt text-[9px]"></i> Try
                             </a>
                         </div>
                     </div>
@@ -427,37 +514,35 @@
 
 
                 <!-- 5. Marine Debris Detection -->
-                <div class="project-item clean-card rounded-xl bg-white dark:bg-zinc-900/70 border border-zinc-200 dark:border-zinc-800 p-5 flex flex-col justify-between hover:border-zinc-300 dark:hover:border-zinc-700 hover:shadow-xs" data-category="cv">
+                <div class="project-card glass-panel glass-panel-hover rounded-2xl p-6 border border-white/10 flex flex-col justify-between" data-cat="cv">
                     <div>
-                        <div class="flex items-center justify-between gap-2 mb-3">
-                            <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded text-[11px] font-medium bg-cyan-50 dark:bg-cyan-950/40 text-cyan-700 dark:text-cyan-400 border border-cyan-200 dark:border-cyan-800/50 font-mono">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="px-2.5 py-0.5 rounded-full bg-cyan-500/15 border border-cyan-500/30 text-cyan-300 text-[11px] font-mono flex items-center gap-1.5">
                                 <i class="fas fa-eye text-xs"></i> Computer Vision
                             </span>
-                            <span class="text-[11px] font-mono text-zinc-400">02/2025</span>
+                            <span class="text-xs font-mono text-slate-500">02/2025</span>
                         </div>
 
-                        <h3 class="text-base font-bold text-zinc-900 dark:text-zinc-100 mb-2">
+                        <h3 class="text-lg font-bold text-white mb-2">
                             Marine Debris Detection using YOLOv8 & YOLOv5
                         </h3>
 
-                        <p class="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed mb-4">
-                            Trained <strong class="text-zinc-800 dark:text-zinc-200">YOLOv8</strong> models on Roboflow annotated aquatic debris imagery with COCO transfer learning. Built real-time OpenCV automated detection for marine environmental monitoring.
+                        <p class="text-xs text-slate-300 leading-relaxed mb-4">
+                            Trained <strong class="text-white font-semibold">YOLOv8</strong> models on Roboflow annotated aquatic debris imagery with COCO transfer learning. Built real-time OpenCV automated detection for marine environmental cleanup.
                         </p>
                     </div>
 
                     <div>
-                        <div class="flex flex-wrap gap-1.5 mb-4 font-mono text-[11px]">
-                            <span class="px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300">YOLOv8</span>
-                            <span class="px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300">OpenCV</span>
-                            <span class="px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300">Roboflow</span>
-                            <span class="px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300">Python</span>
+                        <div class="flex flex-wrap gap-1.5 mb-4 font-mono text-[10px]">
+                            <span class="px-2 py-0.5 rounded bg-space-850 text-cyan-300 border border-cyan-500/20">YOLOv8</span>
+                            <span class="px-2 py-0.5 rounded bg-space-850 text-emerald-300 border border-emerald-500/20">OpenCV</span>
+                            <span class="px-2 py-0.5 rounded bg-space-850 text-cyber-blue border border-cyber-blue/20">Roboflow</span>
+                            <span class="px-2 py-0.5 rounded bg-space-850 text-slate-300 border border-white/10">Python</span>
                         </div>
 
-                        <div class="flex items-center gap-2 pt-3 border-t border-zinc-100 dark:border-zinc-800/80">
-                            <a href="https://github.com/NayeemS25/marine-debris-prediction" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-semibold text-zinc-900 dark:text-zinc-100 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                                <i class="fab fa-github"></i>
-                                <span>Source Code</span>
-                                <i class="fas fa-arrow-up-right-from-square text-[9px] ml-0.5 opacity-70"></i>
+                        <div class="pt-3 border-t border-white/5">
+                            <a href="https://github.com/NayeemS25/marine-debris-prediction" target="_blank" rel="noopener noreferrer" class="w-full py-2 rounded-lg bg-space-850 hover:bg-space-800 text-white text-xs font-semibold text-center border border-white/10 flex items-center justify-center gap-1.5 transition-colors">
+                                <i class="fab fa-github"></i> View GitHub Code
                             </a>
                         </div>
                     </div>
@@ -465,36 +550,34 @@
 
 
                 <!-- 6. Reddit Persona Generation -->
-                <div class="project-item clean-card rounded-xl bg-white dark:bg-zinc-900/70 border border-zinc-200 dark:border-zinc-800 p-5 flex flex-col justify-between hover:border-zinc-300 dark:hover:border-zinc-700 hover:shadow-xs" data-category="genai">
+                <div class="project-card glass-panel glass-panel-hover rounded-2xl p-6 border border-white/10 flex flex-col justify-between" data-cat="genai">
                     <div>
-                        <div class="flex items-center justify-between gap-2 mb-3">
-                            <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded text-[11px] font-medium bg-purple-50 dark:bg-purple-950/40 text-purple-700 dark:text-purple-400 border border-purple-200 dark:border-purple-800/50 font-mono">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="px-2.5 py-0.5 rounded-full bg-purple-500/15 border border-purple-500/30 text-purple-300 text-[11px] font-mono flex items-center gap-1.5">
                                 <i class="fas fa-robot text-xs"></i> LLM Profiling
                             </span>
-                            <span class="text-[11px] font-mono text-zinc-400">2025</span>
+                            <span class="text-xs font-mono text-slate-500">2025</span>
                         </div>
 
-                        <h3 class="text-base font-bold text-zinc-900 dark:text-zinc-100 mb-2">
-                            Reddit Persona Generation & Agent Profiling
+                        <h3 class="text-lg font-bold text-white mb-2">
+                            Reddit Persona Generation & Profiling
                         </h3>
 
-                        <p class="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed mb-4">
-                            Generative AI system extracting behavioral patterns and sentiment characteristics from conversational threads to construct detailed simulated personas using prompt engineering.
+                        <p class="text-xs text-slate-300 leading-relaxed mb-4">
+                            Generative AI system extracting behavioral patterns and sentiment nuances from conversational threads to construct simulated persona models using advanced prompt engineering.
                         </p>
                     </div>
 
                     <div>
-                        <div class="flex flex-wrap gap-1.5 mb-4 font-mono text-[11px]">
-                            <span class="px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300">LLMs</span>
-                            <span class="px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300">NLP</span>
-                            <span class="px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300">Prompting</span>
+                        <div class="flex flex-wrap gap-1.5 mb-4 font-mono text-[10px]">
+                            <span class="px-2 py-0.5 rounded bg-space-850 text-purple-300 border border-purple-500/20">LLMs</span>
+                            <span class="px-2 py-0.5 rounded bg-space-850 text-cyber-blue border border-cyber-blue/20">NLP</span>
+                            <span class="px-2 py-0.5 rounded bg-space-850 text-emerald-300 border border-emerald-500/20">Prompting</span>
                         </div>
 
-                        <div class="flex items-center gap-2 pt-3 border-t border-zinc-100 dark:border-zinc-800/80">
-                            <a href="https://github.com/NayeemS25/reddit-persona-generation" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-semibold text-zinc-900 dark:text-zinc-100 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                                <i class="fab fa-github"></i>
-                                <span>Source Code</span>
-                                <i class="fas fa-arrow-up-right-from-square text-[9px] ml-0.5 opacity-70"></i>
+                        <div class="pt-3 border-t border-white/5">
+                            <a href="https://github.com/NayeemS25/reddit-persona-generation" target="_blank" rel="noopener noreferrer" class="w-full py-2 rounded-lg bg-space-850 hover:bg-space-800 text-white text-xs font-semibold text-center border border-white/10 flex items-center justify-center gap-1.5 transition-colors">
+                                <i class="fab fa-github"></i> View GitHub Code
                             </a>
                         </div>
                     </div>
@@ -505,181 +588,184 @@
         </section>
 
 
-        <!-- EXPERIENCE: Clean Minimal Timeline -->
+        <!-- EXPERIENCE & RESEARCH SECTION -->
         <section id="experience" class="space-y-6">
             
-            <div class="border-b border-zinc-200 dark:border-zinc-800 pb-4">
-                <h2 class="text-xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100">
-                    Work Experience & Research
-                </h2>
-                <p class="text-xs text-zinc-500 dark:text-zinc-400 mt-1">
-                    Industry AI engineering internships and research deployments.
-                </p>
+            <div class="border-b border-white/10 pb-4">
+                <span class="text-xs font-mono uppercase tracking-widest text-cyber-blue bg-cyber-blue/10 px-2.5 py-1 rounded-full border border-cyber-blue/20">Industry</span>
+                <h2 class="text-2xl sm:text-3xl font-bold text-white mt-2">Work Experience & Research</h2>
             </div>
 
-            <!-- Experience Card -->
-            <div class="clean-card rounded-xl bg-white dark:bg-zinc-900/70 border border-zinc-200 dark:border-zinc-800 p-6 space-y-4">
-                
-                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+            <div class="glass-panel rounded-2xl p-6 sm:p-8 border border-cyber-blue/30 relative overflow-hidden">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-white/10 pb-5 mb-5">
                     <div>
-                        <div class="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                            Artificial Intelligence Engineer Intern
+                        <div class="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full bg-cyber-blue/15 text-cyber-blue text-xs font-mono mb-1.5">
+                            <i class="fas fa-briefcase"></i> Current Internship
                         </div>
-                        <div class="text-xs font-medium text-blue-600 dark:text-blue-400 mt-0.5">
-                            Ninja Media Creations <span class="text-zinc-400 dark:text-zinc-600">•</span> Chennai, India
+                        <h3 class="text-xl sm:text-2xl font-bold text-white">Artificial Intelligence Engineer Intern</h3>
+                        <div class="text-sm font-medium text-slate-300 mt-1">
+                            <span class="text-cyber-blue">Ninja Media Creations</span>
+                            <span class="text-slate-600 mx-2">•</span>
+                            <span class="text-slate-400 text-xs"><i class="fas fa-location-dot text-rose-400 mr-1"></i>Chennai, India</span>
                         </div>
                     </div>
-                    <div class="text-xs font-mono text-zinc-500 dark:text-zinc-400">
+                    <span class="px-3 py-1 rounded-lg bg-space-850 border border-white/10 text-xs font-mono text-slate-300 self-start sm:self-center">
                         07/2026 – Present
+                    </span>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs text-slate-300">
+                    <div class="p-4 rounded-xl bg-space-900/80 border border-white/5 space-y-1">
+                        <strong class="text-white text-sm flex items-center gap-2">
+                            <i class="fas fa-video text-cyber-blue"></i> MuseTalk Lip-Sync Video Model
+                        </strong>
+                        <p class="text-slate-400 leading-relaxed">
+                            Developing an emotion-aware facial expression synthesis pipeline using <span class="text-cyber-blue font-mono">MuseTalk</span> deep learning models for real-time video generation and low-latency facial rendering.
+                        </p>
+                    </div>
+
+                    <div class="p-4 rounded-xl bg-space-900/80 border border-white/5 space-y-1">
+                        <strong class="text-white text-sm flex items-center gap-2">
+                            <i class="fas fa-microphone text-purple-400"></i> Multilingual STT / TTS Pipelines
+                        </strong>
+                        <p class="text-slate-400 leading-relaxed">
+                            Engineered high-accuracy Speech-to-Text and Text-to-Speech inference pipelines integrating <span class="text-purple-300 font-mono">ElevenLabs</span> and <span class="text-purple-300 font-mono">Sarvam AI</span> across Indian regional languages.
+                        </p>
+                    </div>
+
+                    <div class="p-4 rounded-xl bg-space-900/80 border border-white/5 space-y-1">
+                        <strong class="text-white text-sm flex items-center gap-2">
+                            <i class="fas fa-train text-amber-400"></i> Indian Railways Domain ML
+                        </strong>
+                        <p class="text-slate-400 leading-relaxed">
+                            Developing a domain-specific predictive query resolution model — leading data collection, feature engineering, and model training on vernacular language datasets.
+                        </p>
+                    </div>
+
+                    <div class="p-4 rounded-xl bg-space-900/80 border border-white/5 space-y-1">
+                        <strong class="text-white text-sm flex items-center gap-2">
+                            <i class="fas fa-globe text-emerald-400"></i> Low-Resource Indic NLP
+                        </strong>
+                        <p class="text-slate-400 leading-relaxed">
+                            Integrated Sarvam AI's vernacular architectures to enable contextual comprehension for low-resource Indian languages and dialects.
+                        </p>
                     </div>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-3 pt-2 text-xs text-zinc-600 dark:text-zinc-400">
-                    <div class="p-3 rounded-lg bg-zinc-50 dark:bg-zinc-850 border border-zinc-200/60 dark:border-zinc-800/60">
-                        <strong class="text-zinc-900 dark:text-zinc-200 block mb-1">
-                            <i class="fas fa-video text-blue-500 mr-1"></i> MuseTalk Lip-Sync Model
-                        </strong>
-                        Developing emotion-aware facial expression synthesis using MuseTalk deep learning pipelines for real-time video generation.
-                    </div>
-
-                    <div class="p-3 rounded-lg bg-zinc-50 dark:bg-zinc-850 border border-zinc-200/60 dark:border-zinc-800/60">
-                        <strong class="text-zinc-900 dark:text-zinc-200 block mb-1">
-                            <i class="fas fa-microphone text-purple-500 mr-1"></i> Multilingual Audio Inference
-                        </strong>
-                        Built Speech-to-Text and Text-to-Speech pipelines with ElevenLabs and Sarvam AI across Indian regional languages.
-                    </div>
-
-                    <div class="p-3 rounded-lg bg-zinc-50 dark:bg-zinc-850 border border-zinc-200/60 dark:border-zinc-800/60">
-                        <strong class="text-zinc-900 dark:text-zinc-200 block mb-1">
-                            <i class="fas fa-train text-amber-500 mr-1"></i> Indian Railways Domain ML
-                        </strong>
-                        Developing predictive query resolution models with data preprocessing and training on vernacular regional datasets.
-                    </div>
-
-                    <div class="p-3 rounded-lg bg-zinc-50 dark:bg-zinc-850 border border-zinc-200/60 dark:border-zinc-800/60">
-                        <strong class="text-zinc-900 dark:text-zinc-200 block mb-1">
-                            <i class="fas fa-globe text-emerald-500 mr-1"></i> Low-Resource Indic NLP
-                        </strong>
-                        Integrated Sarvam AI vernacular language models for low-resource Indian dialects and semantic comprehension.
-                    </div>
+                <div class="mt-5 pt-4 border-t border-white/10 flex flex-wrap gap-2 font-mono text-[10px]">
+                    <span class="text-slate-500 self-center mr-1">Stack:</span>
+                    <span class="px-2.5 py-1 rounded bg-space-850 text-cyan-300 border border-cyan-500/20">MuseTalk</span>
+                    <span class="px-2.5 py-1 rounded bg-space-850 text-purple-300 border border-purple-500/20">Sarvam AI</span>
+                    <span class="px-2.5 py-1 rounded bg-space-850 text-amber-300 border border-amber-500/20">ElevenLabs</span>
+                    <span class="px-2.5 py-1 rounded bg-space-850 text-cyber-blue border border-cyber-blue/20">PyTorch</span>
+                    <span class="px-2.5 py-1 rounded bg-space-850 text-emerald-300 border border-emerald-500/20">OpenCV</span>
                 </div>
-
-                <div class="flex flex-wrap gap-1.5 pt-2 font-mono text-[10px]">
-                    <span class="px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300">MuseTalk</span>
-                    <span class="px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300">Sarvam AI</span>
-                    <span class="px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300">ElevenLabs</span>
-                    <span class="px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300">PyTorch</span>
-                    <span class="px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300">OpenCV</span>
-                </div>
-
             </div>
 
         </section>
 
 
-        <!-- INTERACTIVE AI PLAYGROUND (Minimal & Functional) -->
+        <!-- INTERACTIVE AI SANDBOX -->
         <section id="playground" class="space-y-6">
             
-            <div class="border-b border-zinc-200 dark:border-zinc-800 pb-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-white/10 pb-4">
                 <div>
-                    <h2 class="text-xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100 flex items-center gap-2">
-                        <span>Interactive AI Sandbox</span>
-                    </h2>
-                    <p class="text-xs text-zinc-500 dark:text-zinc-400 mt-1">
-                        Test live model inference directly in your browser.
-                    </p>
+                    <span class="text-xs font-mono uppercase tracking-widest text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded-full border border-emerald-500/20 flex items-center gap-1.5 w-fit">
+                        <i class="fas fa-bolt text-emerald-400"></i> Interactive Demo
+                    </span>
+                    <h2 class="text-2xl sm:text-3xl font-bold text-white mt-2">Live AI Playground</h2>
                 </div>
 
-                <div class="flex items-center gap-2">
-                    <button onclick="setSandboxTab('emotion')" id="sb-btn-emotion" class="px-3 py-1.5 rounded-lg bg-zinc-900 dark:bg-zinc-100 text-zinc-50 dark:text-zinc-900 text-xs font-semibold transition-all">GoEmotions NLP</button>
-                    <button onclick="setSandboxTab('legal')" id="sb-btn-legal" class="px-3 py-1.5 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 text-xs font-medium transition-all">Legal Connect RAG</button>
+                <div class="flex items-center gap-2 p-1 bg-space-850 rounded-xl border border-white/5 text-xs font-mono">
+                    <button onclick="switchSandbox('emotion')" id="tab-sb-emo" class="px-3.5 py-1.5 rounded-lg bg-cyber-blue text-space-950 font-bold transition-all">GoEmotions NLP</button>
+                    <button onclick="switchSandbox('legal')" id="tab-sb-leg" class="px-3.5 py-1.5 rounded-lg text-slate-300 hover:text-white transition-all">Legal Connect RAG</button>
                 </div>
             </div>
 
-            <!-- Sandbox Container -->
-            <div class="clean-card rounded-xl bg-white dark:bg-zinc-900/70 border border-zinc-200 dark:border-zinc-800 p-6">
+            <!-- Sandbox Card -->
+            <div class="glass-panel rounded-2xl p-6 sm:p-8 border border-cyber-blue/30 shadow-2xl">
                 
-                <!-- EMOTION TAB -->
-                <div id="sb-panel-emotion" class="space-y-4">
+                <!-- EMOTION PANEL -->
+                <div id="panel-emotion" class="space-y-5">
                     <div>
-                        <div class="flex justify-between items-center mb-1.5">
-                            <label class="text-xs font-medium text-zinc-700 dark:text-zinc-300">Input Text for Emotion Analysis (DistilRoBERTa):</label>
-                            <span class="text-[11px] font-mono text-zinc-400">Latency: ~38ms</span>
+                        <div class="flex justify-between items-center mb-2">
+                            <label class="text-xs font-mono text-slate-400">Input Sentence for 28-Class GoEmotions Transformer:</label>
+                            <span class="text-[11px] font-mono text-emerald-400">Latency: ~36ms</span>
                         </div>
-                        <input type="text" id="demo-text-input" value="I am genuinely astonished and grateful for the tremendous progress achieved by the team!" class="w-full rounded-lg bg-zinc-50 dark:bg-zinc-950 border border-zinc-300 dark:border-zinc-700 px-3.5 py-2.5 text-xs sm:text-sm text-zinc-900 dark:text-zinc-100 focus:outline-none focus:ring-1 focus:ring-blue-500">
+                        <textarea id="emo-text" rows="2" class="w-full rounded-xl bg-space-900 border border-white/10 px-4 py-3 text-xs sm:text-sm text-white placeholder-slate-500 focus:outline-none focus:border-cyber-blue font-sans">I am genuinely astonished and grateful for the breakthrough achieved by the deep learning team!</textarea>
                     </div>
 
                     <div class="flex flex-wrap items-center gap-2">
-                        <span class="text-xs text-zinc-400">Sample phrases:</span>
-                        <button onclick="quickFillEmotion('I am grateful for all the support and guidance.')" class="px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-[11px] text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100">Gratitude</button>
-                        <button onclick="quickFillEmotion('I am worried about the strict deployment timeline.')" class="px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-[11px] text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100">Anxiety</button>
-                        <button onclick="quickFillEmotion('This new transformer model is astonishing and brilliant!')" class="px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-[11px] text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100">Admiration</button>
+                        <span class="text-xs font-mono text-slate-500">Sample Prompts:</span>
+                        <button onclick="fillEmo('I am extremely grateful for the mentorship and great support on this pipeline.')" class="px-2.5 py-1 rounded bg-space-850 hover:bg-space-800 text-[11px] text-slate-300 border border-white/5">Gratitude</button>
+                        <button onclick="fillEmo('I feel overwhelmed and worried about tomorrow\'s production deployment.')" class="px-2.5 py-1 rounded bg-space-850 hover:bg-space-800 text-[11px] text-slate-300 border border-white/5">Anxiety / Fear</button>
+                        <button onclick="fillEmo('This transformer architecture is astonishing and revolutionary!')" class="px-2.5 py-1 rounded bg-space-850 hover:bg-space-800 text-[11px] text-slate-300 border border-white/5">Admiration / Joy</button>
                     </div>
 
-                    <div class="pt-2">
-                        <button onclick="runInference()" class="px-4 py-2 rounded-lg bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold transition-colors flex items-center gap-1.5">
-                            <i class="fas fa-play text-[10px]"></i>
-                            <span>Run Inference</span>
+                    <div>
+                        <button onclick="runEmoInference()" id="emo-run-btn" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-cyber-blue to-cyber-indigo text-space-950 font-bold text-xs uppercase tracking-wider hover:shadow-lg transition-all flex items-center gap-2">
+                            <i class="fas fa-play"></i> Run Inference
                         </button>
                     </div>
 
-                    <!-- Prediction Result Bars -->
-                    <div class="mt-4 p-4 rounded-lg bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 space-y-3" id="prediction-bars">
-                        <div class="flex items-center justify-between text-xs font-mono mb-2 border-b border-zinc-200 dark:border-zinc-850 pb-1.5">
-                            <span class="text-zinc-500">Predicted Class</span>
-                            <span class="text-blue-600 dark:text-blue-400 font-semibold" id="top-emotion-label">Primary: Gratitude (94.2%)</span>
+                    <!-- Dynamic Probability Bars -->
+                    <div class="p-5 rounded-xl bg-space-900/90 border border-white/5 space-y-3" id="emo-results">
+                        <div class="flex items-center justify-between text-xs font-mono pb-2 border-b border-white/5">
+                            <span class="text-slate-400">Top Predicted Classes</span>
+                            <span class="text-cyber-blue font-bold" id="primary-emo-label">Primary: Gratitude (94.2%)</span>
                         </div>
-                        <div class="space-y-2.5">
+
+                        <div class="space-y-3" id="bars-container">
                             <div>
-                                <div class="flex justify-between text-xs mb-1">
-                                    <span class="text-zinc-700 dark:text-zinc-300 font-medium">Gratitude / Appreciation</span>
-                                    <span class="font-mono text-xs text-zinc-500">94.2%</span>
+                                <div class="flex justify-between text-xs font-mono mb-1">
+                                    <span class="text-slate-200">Gratitude</span>
+                                    <span class="text-cyber-blue font-bold">94.2%</span>
                                 </div>
-                                <div class="w-full h-1.5 bg-zinc-200 dark:bg-zinc-800 rounded-full overflow-hidden">
-                                    <div class="h-full bg-blue-600 rounded-full" style="width: 94.2%"></div>
+                                <div class="w-full h-2 bg-space-850 rounded-full overflow-hidden">
+                                    <div class="h-full bg-gradient-to-r from-cyber-blue to-cyan-400 rounded-full transition-all duration-500" style="width: 94.2%"></div>
                                 </div>
                             </div>
                             <div>
-                                <div class="flex justify-between text-xs mb-1">
-                                    <span class="text-zinc-700 dark:text-zinc-300 font-medium">Joy / Optimism</span>
-                                    <span class="font-mono text-xs text-zinc-500">81.5%</span>
+                                <div class="flex justify-between text-xs font-mono mb-1">
+                                    <span class="text-slate-200">Joy / Excitement</span>
+                                    <span class="text-purple-400 font-bold">81.5%</span>
                                 </div>
-                                <div class="w-full h-1.5 bg-zinc-200 dark:bg-zinc-800 rounded-full overflow-hidden">
-                                    <div class="h-full bg-emerald-500 rounded-full" style="width: 81.5%"></div>
+                                <div class="w-full h-2 bg-space-850 rounded-full overflow-hidden">
+                                    <div class="h-full bg-gradient-to-r from-purple-500 to-indigo-500 rounded-full transition-all duration-500" style="width: 81.5%"></div>
                                 </div>
                             </div>
                             <div>
-                                <div class="flex justify-between text-xs mb-1">
-                                    <span class="text-zinc-700 dark:text-zinc-300 font-medium">Admiration</span>
-                                    <span class="font-mono text-xs text-zinc-500">62.0%</span>
+                                <div class="flex justify-between text-xs font-mono mb-1">
+                                    <span class="text-slate-200">Admiration</span>
+                                    <span class="text-emerald-400 font-bold">67.3%</span>
                                 </div>
-                                <div class="w-full h-1.5 bg-zinc-200 dark:bg-zinc-800 rounded-full overflow-hidden">
-                                    <div class="h-full bg-purple-500 rounded-full" style="width: 62.0%"></div>
+                                <div class="w-full h-2 bg-space-850 rounded-full overflow-hidden">
+                                    <div class="h-full bg-gradient-to-r from-emerald-500 to-teal-400 rounded-full transition-all duration-500" style="width: 67.3%"></div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- LEGAL TAB -->
-                <div id="sb-panel-legal" class="space-y-4 hidden">
+                <!-- LEGAL PANEL -->
+                <div id="panel-legal" class="space-y-5 hidden">
                     <div>
-                        <label class="text-xs font-medium text-zinc-700 dark:text-zinc-300 block mb-1.5">Legal Query for RAG Precedent Match & Analysis:</label>
-                        <input type="text" id="legal-input" value="Compensation parameters for breach of contract under Section 73 Indian Contract Act" class="w-full rounded-lg bg-zinc-50 dark:bg-zinc-950 border border-zinc-300 dark:border-zinc-700 px-3.5 py-2.5 text-xs sm:text-sm text-zinc-900 dark:text-zinc-100 focus:outline-none focus:ring-1 focus:ring-blue-500">
+                        <label class="text-xs font-mono text-slate-400 block mb-2">Legal Scenario for RAG Vector Retrieval & Outcome Prediction:</label>
+                        <input type="text" id="leg-query" value="What are the essential requirements for proving damages under Section 73 of Indian Contract Act?" class="w-full rounded-xl bg-space-900 border border-white/10 px-4 py-3 text-xs sm:text-sm text-white placeholder-slate-500 focus:outline-none focus:border-cyber-blue font-sans">
                     </div>
 
-                    <button onclick="runLegalRag()" class="px-4 py-2 rounded-lg bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold transition-colors flex items-center gap-1.5">
-                        <i class="fas fa-magnifying-glass text-[10px]"></i>
-                        <span>Query RAG System</span>
+                    <button onclick="runLegInference()" id="leg-run-btn" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-cyber-blue to-cyber-indigo text-space-950 font-bold text-xs uppercase tracking-wider hover:shadow-lg transition-all flex items-center gap-2">
+                        <i class="fas fa-magnifying-glass"></i> Execute Legal RAG Query
                     </button>
 
-                    <div class="p-4 rounded-lg bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 text-xs space-y-2" id="legal-output">
-                        <div class="flex justify-between font-mono text-zinc-500 text-[11px] border-b border-zinc-200 dark:border-zinc-850 pb-1.5">
-                            <span>Knowledge Base: Supreme Court Precedents</span>
-                            <span class="text-emerald-600 dark:text-emerald-400">Match: 95.1%</span>
+                    <div class="p-5 rounded-xl bg-space-900/90 border border-white/5 space-y-3 text-xs" id="leg-result">
+                        <div class="flex items-center justify-between text-slate-400 font-mono text-[11px] border-b border-white/5 pb-2">
+                            <span>Source: Supreme Court of India Precedents & Bare Acts</span>
+                            <span class="text-emerald-400">Match Confidence: 95.8%</span>
                         </div>
-                        <p class="text-zinc-700 dark:text-zinc-300 leading-relaxed">
-                            Under Section 73 of the Indian Contract Act, compensation is recoverable for loss naturally arising in the usual course of things. Indirect or remote damages are explicitly excluded without prior knowledge.
+                        <p class="text-slate-200 leading-relaxed" id="leg-summary">
+                            <strong class="text-cyber-blue">Case Outcome & Precedent Analysis:</strong><br>
+                            Under Section 73 of the Indian Contract Act (1872), compensation is claimable for loss or damage that naturally arose in the usual course of things from the breach. Remote or indirect loss is strictly excluded unless special terms were made known.
                         </p>
                     </div>
                 </div>
@@ -689,106 +775,109 @@
         </section>
 
 
-        <!-- SKILLS MATRIX: Clean Categorized Chips -->
+        <!-- SKILLS & TECHNICAL STACK -->
         <section id="skills" class="space-y-6">
             
-            <div class="border-b border-zinc-200 dark:border-zinc-800 pb-4">
-                <h2 class="text-xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100">
-                    Skills & Technical Proficiencies
-                </h2>
-                <p class="text-xs text-zinc-500 dark:text-zinc-400 mt-1">
-                    Tools, frameworks, and core mathematical foundations.
-                </p>
+            <div class="border-b border-white/10 pb-4">
+                <span class="text-xs font-mono uppercase tracking-widest text-cyber-blue bg-cyber-blue/10 px-2.5 py-1 rounded-full border border-cyber-blue/20">Matrix</span>
+                <h2 class="text-2xl sm:text-3xl font-bold text-white mt-2">Technical Skills & Machine Learning Stack</h2>
             </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-
-                <!-- Col 1: NLP & GenAI -->
-                <div class="clean-card rounded-xl bg-white dark:bg-zinc-900/70 border border-zinc-200 dark:border-zinc-800 p-4 space-y-2.5">
-                    <div class="text-xs font-bold text-zinc-900 dark:text-zinc-100 flex items-center gap-1.5">
-                        <i class="fas fa-brain text-blue-500"></i>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                
+                <div class="glass-panel rounded-2xl p-5 border border-white/10 space-y-3">
+                    <div class="flex items-center gap-2.5 text-sm font-bold text-white">
+                        <div class="w-8 h-8 rounded-lg bg-cyber-blue/15 text-cyber-blue flex items-center justify-center text-sm">
+                            <i class="fas fa-brain"></i>
+                        </div>
                         <span>NLP & Generative AI</span>
                     </div>
-                    <div class="flex flex-wrap gap-1.5 text-[11px] font-mono">
-                        <span class="px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300">Transformers</span>
-                        <span class="px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300">Hugging Face</span>
-                        <span class="px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300">RAG Pipelines</span>
-                        <span class="px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300">Fine-Tuning</span>
-                        <span class="px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300">DistilRoBERTa</span>
-                        <span class="px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300">Prompt Eng</span>
+                    <div class="flex flex-wrap gap-1.5 font-mono text-[11px]">
+                        <span class="px-2 py-0.5 rounded bg-space-850 text-cyan-300 border border-cyan-500/20">Transformers</span>
+                        <span class="px-2 py-0.5 rounded bg-space-850 text-purple-300 border border-purple-500/20">Hugging Face</span>
+                        <span class="px-2 py-0.5 rounded bg-space-850 text-emerald-300 border border-emerald-500/20">RAG Pipelines</span>
+                        <span class="px-2 py-0.5 rounded bg-space-850 text-amber-300 border border-amber-500/20">Fine-Tuning</span>
+                        <span class="px-2 py-0.5 rounded bg-space-850 text-cyber-blue border border-cyber-blue/20">DistilRoBERTa</span>
+                        <span class="px-2 py-0.5 rounded bg-space-850 text-slate-300 border border-white/5">Prompt Eng</span>
                     </div>
                 </div>
 
-                <!-- Col 2: Computer Vision -->
-                <div class="clean-card rounded-xl bg-white dark:bg-zinc-900/70 border border-zinc-200 dark:border-zinc-800 p-4 space-y-2.5">
-                    <div class="text-xs font-bold text-zinc-900 dark:text-zinc-100 flex items-center gap-1.5">
-                        <i class="fas fa-eye text-purple-500"></i>
+                <div class="glass-panel rounded-2xl p-5 border border-white/10 space-y-3">
+                    <div class="flex items-center gap-2.5 text-sm font-bold text-white">
+                        <div class="w-8 h-8 rounded-lg bg-purple-500/15 text-purple-400 flex items-center justify-center text-sm">
+                            <i class="fas fa-eye"></i>
+                        </div>
                         <span>Computer Vision</span>
                     </div>
-                    <div class="flex flex-wrap gap-1.5 text-[11px] font-mono">
-                        <span class="px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300">PyTorch</span>
-                        <span class="px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300">TensorFlow</span>
-                        <span class="px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300">YOLOv8 / YOLOv5</span>
-                        <span class="px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300">MuseTalk</span>
-                        <span class="px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300">OpenCV</span>
-                        <span class="px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300">Roboflow</span>
+                    <div class="flex flex-wrap gap-1.5 font-mono text-[11px]">
+                        <span class="px-2 py-0.5 rounded bg-space-850 text-purple-300 border border-purple-500/20">PyTorch</span>
+                        <span class="px-2 py-0.5 rounded bg-space-850 text-amber-300 border border-amber-500/20">TensorFlow</span>
+                        <span class="px-2 py-0.5 rounded bg-space-850 text-cyan-300 border border-cyan-500/20">YOLOv8 / YOLOv5</span>
+                        <span class="px-2 py-0.5 rounded bg-space-850 text-cyber-blue border border-cyber-blue/20">MuseTalk</span>
+                        <span class="px-2 py-0.5 rounded bg-space-850 text-emerald-300 border border-emerald-500/20">OpenCV</span>
+                        <span class="px-2 py-0.5 rounded bg-space-850 text-slate-300 border border-white/5">Roboflow</span>
                     </div>
                 </div>
 
-                <!-- Col 3: Speech & Multilingual -->
-                <div class="clean-card rounded-xl bg-white dark:bg-zinc-900/70 border border-zinc-200 dark:border-zinc-800 p-4 space-y-2.5">
-                    <div class="text-xs font-bold text-zinc-900 dark:text-zinc-100 flex items-center gap-1.5">
-                        <i class="fas fa-headphones text-cyan-500"></i>
+                <div class="glass-panel rounded-2xl p-5 border border-white/10 space-y-3">
+                    <div class="flex items-center gap-2.5 text-sm font-bold text-white">
+                        <div class="w-8 h-8 rounded-lg bg-cyan-500/15 text-cyan-400 flex items-center justify-center text-sm">
+                            <i class="fas fa-headphones"></i>
+                        </div>
                         <span>Speech & Multilingual AI</span>
                     </div>
-                    <div class="flex flex-wrap gap-1.5 text-[11px] font-mono">
-                        <span class="px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300">Sarvam AI</span>
-                        <span class="px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300">ElevenLabs</span>
-                        <span class="px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300">STT / TTS</span>
-                        <span class="px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300">Indic NLP</span>
+                    <div class="flex flex-wrap gap-1.5 font-mono text-[11px]">
+                        <span class="px-2 py-0.5 rounded bg-space-850 text-cyan-300 border border-cyan-500/20">Sarvam AI</span>
+                        <span class="px-2 py-0.5 rounded bg-space-850 text-purple-300 border border-purple-500/20">ElevenLabs</span>
+                        <span class="px-2 py-0.5 rounded bg-space-850 text-cyber-blue border border-cyber-blue/20">STT / TTS</span>
+                        <span class="px-2 py-0.5 rounded bg-space-850 text-emerald-300 border border-emerald-500/20">Indic NLP</span>
+                        <span class="px-2 py-0.5 rounded bg-space-850 text-slate-300 border border-white/5">Audio Pipelines</span>
                     </div>
                 </div>
 
-                <!-- Col 4: ML & Statistics -->
-                <div class="clean-card rounded-xl bg-white dark:bg-zinc-900/70 border border-zinc-200 dark:border-zinc-800 p-4 space-y-2.5">
-                    <div class="text-xs font-bold text-zinc-900 dark:text-zinc-100 flex items-center gap-1.5">
-                        <i class="fas fa-chart-line text-emerald-500"></i>
-                        <span>Machine Learning & Stats</span>
+                <div class="glass-panel rounded-2xl p-5 border border-white/10 space-y-3">
+                    <div class="flex items-center gap-2.5 text-sm font-bold text-white">
+                        <div class="w-8 h-8 rounded-lg bg-emerald-500/15 text-emerald-400 flex items-center justify-center text-sm">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <span>ML & Statistics</span>
                     </div>
-                    <div class="flex flex-wrap gap-1.5 text-[11px] font-mono">
-                        <span class="px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300">Scikit-learn</span>
-                        <span class="px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300">ANOVA</span>
-                        <span class="px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300">Hypothesis Testing</span>
-                        <span class="px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300">Regression</span>
+                    <div class="flex flex-wrap gap-1.5 font-mono text-[11px]">
+                        <span class="px-2 py-0.5 rounded bg-space-850 text-emerald-300 border border-emerald-500/20">Scikit-learn</span>
+                        <span class="px-2 py-0.5 rounded bg-space-850 text-amber-300 border border-amber-500/20">ANOVA & Hypothesis</span>
+                        <span class="px-2 py-0.5 rounded bg-space-850 text-cyber-blue border border-cyber-blue/20">Regression</span>
+                        <span class="px-2 py-0.5 rounded bg-space-850 text-purple-300 border border-purple-500/20">Clustering</span>
                     </div>
                 </div>
 
-                <!-- Col 5: Data & Analytics -->
-                <div class="clean-card rounded-xl bg-white dark:bg-zinc-900/70 border border-zinc-200 dark:border-zinc-800 p-4 space-y-2.5">
-                    <div class="text-xs font-bold text-zinc-900 dark:text-zinc-100 flex items-center gap-1.5">
-                        <i class="fas fa-chart-pie text-amber-500"></i>
+                <div class="glass-panel rounded-2xl p-5 border border-white/10 space-y-3">
+                    <div class="flex items-center gap-2.5 text-sm font-bold text-white">
+                        <div class="w-8 h-8 rounded-lg bg-amber-500/15 text-amber-400 flex items-center justify-center text-sm">
+                            <i class="fas fa-chart-pie"></i>
+                        </div>
                         <span>Data & Visualization</span>
                     </div>
-                    <div class="flex flex-wrap gap-1.5 text-[11px] font-mono">
-                        <span class="px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300">Power BI</span>
-                        <span class="px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300">Pandas</span>
-                        <span class="px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300">NumPy</span>
-                        <span class="px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300">Matplotlib</span>
+                    <div class="flex flex-wrap gap-1.5 font-mono text-[11px]">
+                        <span class="px-2 py-0.5 rounded bg-space-850 text-amber-300 border border-amber-500/20">Power BI</span>
+                        <span class="px-2 py-0.5 rounded bg-space-850 text-cyber-blue border border-cyber-blue/20">Pandas</span>
+                        <span class="px-2 py-0.5 rounded bg-space-850 text-cyan-300 border border-cyan-500/20">NumPy</span>
+                        <span class="px-2 py-0.5 rounded bg-space-850 text-purple-300 border border-purple-500/20">Matplotlib</span>
                     </div>
                 </div>
 
-                <!-- Col 6: Engineering Tools -->
-                <div class="clean-card rounded-xl bg-white dark:bg-zinc-900/70 border border-zinc-200 dark:border-zinc-800 p-4 space-y-2.5">
-                    <div class="text-xs font-bold text-zinc-900 dark:text-zinc-100 flex items-center gap-1.5">
-                        <i class="fas fa-code text-rose-500"></i>
-                        <span>Languages & Backend</span>
+                <div class="glass-panel rounded-2xl p-5 border border-white/10 space-y-3">
+                    <div class="flex items-center gap-2.5 text-sm font-bold text-white">
+                        <div class="w-8 h-8 rounded-lg bg-rose-500/15 text-rose-400 flex items-center justify-center text-sm">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <span>Languages & Cloud</span>
                     </div>
-                    <div class="flex flex-wrap gap-1.5 text-[11px] font-mono">
-                        <span class="px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300">Python</span>
-                        <span class="px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300">SQL / MySQL</span>
-                        <span class="px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300">Flask REST API</span>
-                        <span class="px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300">Supabase</span>
-                        <span class="px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300">Git / GitHub</span>
+                    <div class="flex flex-wrap gap-1.5 font-mono text-[11px]">
+                        <span class="px-2 py-0.5 rounded bg-space-850 text-rose-300 border border-rose-500/20">Python</span>
+                        <span class="px-2 py-0.5 rounded bg-space-850 text-blue-300 border border-blue-500/20">SQL / MySQL</span>
+                        <span class="px-2 py-0.5 rounded bg-space-850 text-cyber-blue border border-cyber-blue/20">Flask REST</span>
+                        <span class="px-2 py-0.5 rounded bg-space-850 text-emerald-300 border border-emerald-500/20">Supabase</span>
+                        <span class="px-2 py-0.5 rounded bg-space-850 text-purple-300 border border-purple-500/20">N8N Workflows</span>
                     </div>
                 </div>
 
@@ -797,63 +886,77 @@
         </section>
 
 
-        <!-- AWARDS & CERTIFICATIONS -->
+        <!-- AWARDS, HACKATHONS & CERTIFICATIONS -->
         <section id="awards" class="space-y-6">
             
-            <div class="border-b border-zinc-200 dark:border-zinc-800 pb-4">
-                <h2 class="text-xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100">
-                    Honors & Verified Credentials
-                </h2>
-                <p class="text-xs text-zinc-500 dark:text-zinc-400 mt-1">
-                    Hackathon placements and certified coursework.
-                </p>
+            <div class="border-b border-white/10 pb-4">
+                <span class="text-xs font-mono uppercase tracking-widest text-amber-400 bg-amber-500/10 px-2.5 py-1 rounded-full border border-amber-500/20">Recognition</span>
+                <h2 class="text-2xl sm:text-3xl font-bold text-white mt-2">Hackathon Wins & Credentials</h2>
             </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
                 
-                <!-- Hackathons -->
-                <div class="clean-card rounded-xl bg-white dark:bg-zinc-900/70 border border-zinc-200 dark:border-zinc-800 p-5 space-y-3">
-                    <div class="text-xs font-bold text-zinc-900 dark:text-zinc-100 flex items-center gap-1.5">
-                        <i class="fas fa-trophy text-amber-500"></i>
-                        <span>Hackathon Placements</span>
+                <!-- Hackathons (7 Cols) -->
+                <div class="lg:col-span-7 space-y-4">
+                    <div class="glass-panel rounded-2xl p-6 border border-amber-500/30 flex items-start gap-4">
+                        <div class="w-11 h-11 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center text-xl shrink-0 border border-amber-500/30">
+                            <i class="fas fa-medal"></i>
+                        </div>
+                        <div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-xs font-mono text-amber-400 font-bold uppercase">RUNNER-UP WINNER</span>
+                                <span class="text-xs font-mono text-slate-500">09/2025</span>
+                            </div>
+                            <h3 class="text-base font-bold text-white mt-1">Impact-A-Thon X AMS (24 Hours)</h3>
+                            <p class="text-xs text-slate-300 mt-1">
+                                Built an AI Student Portfolio Generator using N8N workflows and Supabase, automating resume parsing, skill vector extraction, and instant web compilation.
+                            </p>
+                        </div>
                     </div>
 
-                    <div class="space-y-2.5 text-xs text-zinc-600 dark:text-zinc-400">
-                        <div class="border-b border-zinc-100 dark:border-zinc-800/80 pb-2">
-                            <div class="flex justify-between font-semibold text-zinc-800 dark:text-zinc-200">
-                                <span>🥈 RUNNER-UP — Impact-A-Thon X AMS (24h)</span>
-                                <span class="font-mono text-[11px] text-zinc-400">09/2025</span>
-                            </div>
-                            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 mt-0.5">Automated AI Student Portfolio Generator using N8N & Supabase.</p>
+                    <div class="glass-panel rounded-2xl p-6 border border-purple-500/30 flex items-start gap-4">
+                        <div class="w-11 h-11 rounded-xl bg-purple-500/20 text-purple-400 flex items-center justify-center text-xl shrink-0 border border-purple-500/30">
+                            <i class="fas fa-trophy"></i>
                         </div>
-
                         <div>
-                            <div class="flex justify-between font-semibold text-zinc-800 dark:text-zinc-200">
-                                <span>🥉 Third Prize — SAMURAI National Hackathon (24h)</span>
-                                <span class="font-mono text-[11px] text-zinc-400">10/2025</span>
+                            <div class="flex justify-between items-center">
+                                <span class="text-xs font-mono text-purple-400 font-bold uppercase">THIRD PRIZE WINNER</span>
+                                <span class="text-xs font-mono text-slate-500">10/2025</span>
                             </div>
-                            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 mt-0.5">Legal Connect AI Legal Research Assistant using NLP & RAG.</p>
+                            <h3 class="text-base font-bold text-white mt-1">SAMURAI National Hackathon (24 Hours)</h3>
+                            <p class="text-xs text-slate-300 mt-1">
+                                Developed Legal Connect — an AI-powered legal research assistant using NLP & RAG for automated case retrieval, summarization, and outcome prediction.
+                            </p>
                         </div>
                     </div>
                 </div>
 
-                <!-- Certifications & Degree -->
-                <div class="clean-card rounded-xl bg-white dark:bg-zinc-900/70 border border-zinc-200 dark:border-zinc-800 p-5 space-y-3">
-                    <div class="text-xs font-bold text-zinc-900 dark:text-zinc-100 flex items-center gap-1.5">
-                        <i class="fas fa-graduation-cap text-blue-500"></i>
-                        <span>Education & Certifications</span>
+                <!-- Education & Certs (5 Cols) -->
+                <div class="lg:col-span-5 space-y-4">
+                    <div class="glass-panel rounded-2xl p-5 border border-white/10">
+                        <div class="flex items-center gap-3 mb-2">
+                            <i class="fas fa-graduation-cap text-cyber-blue text-lg"></i>
+                            <h3 class="font-bold text-white text-sm">B.Tech — AI & Data Science</h3>
+                        </div>
+                        <div class="text-xs text-slate-300">Aalim Muhammed Salegh College Of Engineering</div>
+                        <div class="text-xs font-mono text-emerald-400 mt-1">2022 – 2026 | CGPA: 7.5 / 10</div>
                     </div>
 
-                    <div class="space-y-2 text-xs text-zinc-600 dark:text-zinc-400">
-                        <div class="border-b border-zinc-100 dark:border-zinc-800/80 pb-2">
-                            <div class="font-semibold text-zinc-800 dark:text-zinc-200">B.Tech — AI & Data Science (CGPA: 7.5)</div>
-                            <div class="text-[11px] text-zinc-500">Aalim Muhammed Salegh College Of Engineering (2022–2026)</div>
-                        </div>
-
-                        <div class="flex flex-col gap-1 text-[11px] text-zinc-500 dark:text-zinc-400">
-                            <div>• <strong class="text-zinc-700 dark:text-zinc-300">Power BI Essential Training</strong> — LinkedIn Learning</div>
-                            <div>• <strong class="text-zinc-700 dark:text-zinc-300">Linear Algebra for Machine Learning</strong> — Coursera</div>
-                            <div>• <strong class="text-zinc-700 dark:text-zinc-300">Python Certification</strong> — HackerRank</div>
+                    <div class="glass-panel rounded-2xl p-5 border border-white/10 space-y-2.5">
+                        <h3 class="font-bold text-white text-xs uppercase font-mono tracking-wider text-slate-400">Verified Certifications</h3>
+                        <div class="text-xs text-slate-300 space-y-2">
+                            <div class="flex justify-between items-center p-2 rounded-lg bg-space-850 border border-white/5">
+                                <span>Power BI Essential Training</span>
+                                <span class="text-cyber-blue text-[11px] font-mono">LinkedIn Learning</span>
+                            </div>
+                            <div class="flex justify-between items-center p-2 rounded-lg bg-space-850 border border-white/5">
+                                <span>Linear Algebra for Machine Learning</span>
+                                <span class="text-cyber-blue text-[11px] font-mono">Coursera</span>
+                            </div>
+                            <div class="flex justify-between items-center p-2 rounded-lg bg-space-850 border border-white/5">
+                                <span>Python Certification</span>
+                                <span class="text-cyber-blue text-[11px] font-mono">HackerRank</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -866,47 +969,61 @@
         <!-- CONTACT SECTION -->
         <section id="contact" class="space-y-6 pt-4">
             
-            <div class="border-b border-zinc-200 dark:border-zinc-800 pb-4">
-                <h2 class="text-xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100">
-                    Get in Touch
-                </h2>
-                <p class="text-xs text-zinc-500 dark:text-zinc-400 mt-1">
-                    Open to AI/ML Engineering roles, research collaborations, and interesting technical discussions.
-                </p>
-            </div>
+            <div class="glass-panel rounded-3xl p-8 sm:p-10 border border-cyber-blue/30 shadow-2xl relative overflow-hidden">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                    
+                    <div class="lg:col-span-6 space-y-4">
+                        <span class="text-xs font-mono uppercase tracking-widest text-cyber-blue bg-cyber-blue/10 px-2.5 py-1 rounded-full border border-cyber-blue/20">Connect</span>
+                        <h2 class="text-3xl font-extrabold text-white leading-tight">Let's Build Intelligent Systems Together</h2>
+                        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                            Open to AI/ML Engineering roles, research collaborations, and interesting technical discussions.
+                        </p>
 
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                
-                <a href="mailto:nayeemfawaz30@gmail.com" class="clean-card rounded-xl bg-white dark:bg-zinc-900/70 border border-zinc-200 dark:border-zinc-800 p-4 hover:border-zinc-300 dark:hover:border-zinc-700 flex items-center gap-3">
-                    <div class="w-9 h-9 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center text-sm">
-                        <i class="fas fa-envelope"></i>
+                        <div class="space-y-3 pt-2">
+                            <a href="mailto:nayeemfawaz30@gmail.com" class="flex items-center gap-3 p-3 rounded-xl bg-space-900 border border-white/5 hover:border-cyber-blue/40 text-slate-300 hover:text-white transition-all text-xs">
+                                <i class="fas fa-envelope text-cyber-blue text-base"></i>
+                                <span>nayeemfawaz30@gmail.com</span>
+                            </a>
+                            <a href="tel:+919003722241" class="flex items-center gap-3 p-3 rounded-xl bg-space-900 border border-white/5 hover:border-emerald-400/40 text-slate-300 hover:text-white transition-all text-xs">
+                                <i class="fas fa-phone text-emerald-400 text-base"></i>
+                                <span>+91 9003722241</span>
+                            </a>
+                        </div>
                     </div>
-                    <div class="overflow-hidden">
-                        <div class="text-[10px] font-mono text-zinc-400 uppercase">Email</div>
-                        <div class="text-xs font-semibold text-zinc-900 dark:text-zinc-100 truncate">nayeemfawaz30@gmail.com</div>
-                    </div>
-                </a>
 
-                <a href="https://www.linkedin.com/in/nayeems94/" target="_blank" rel="noopener noreferrer" class="clean-card rounded-xl bg-white dark:bg-zinc-900/70 border border-zinc-200 dark:border-zinc-800 p-4 hover:border-zinc-300 dark:hover:border-zinc-700 flex items-center gap-3">
-                    <div class="w-9 h-9 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-blue-600 dark:text-blue-400 flex items-center justify-center text-sm">
-                        <i class="fab fa-linkedin"></i>
-                    </div>
-                    <div>
-                        <div class="text-[10px] font-mono text-zinc-400 uppercase">LinkedIn</div>
-                        <div class="text-xs font-semibold text-zinc-900 dark:text-zinc-100">linkedin.com/in/nayeems94</div>
-                    </div>
-                </a>
+                    <div class="lg:col-span-6 flex flex-col gap-3">
+                        <a href="https://www.linkedin.com/in/nayeems94/" target="_blank" rel="noopener noreferrer" class="p-4 rounded-2xl bg-space-900 border border-white/10 hover:border-blue-500/50 flex items-center justify-between group transition-all">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-xl bg-blue-500/20 text-blue-400 flex items-center justify-center text-lg">
+                                    <i class="fab fa-linkedin"></i>
+                                </div>
+                                <div>
+                                    <div class="text-xs font-bold text-white group-hover:text-blue-400 transition-colors">LinkedIn Profile</div>
+                                    <div class="text-[11px] font-mono text-slate-400">linkedin.com/in/nayeems94</div>
+                                </div>
+                            </div>
+                            <i class="fas fa-arrow-right text-xs text-slate-500 group-hover:text-blue-400 group-hover:translate-x-1 transition-all"></i>
+                        </a>
 
-                <a href="https://github.com/NayeemS25" target="_blank" rel="noopener noreferrer" class="clean-card rounded-xl bg-white dark:bg-zinc-900/70 border border-zinc-200 dark:border-zinc-800 p-4 hover:border-zinc-300 dark:hover:border-zinc-700 flex items-center gap-3">
-                    <div class="w-9 h-9 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center text-sm">
-                        <i class="fab fa-github"></i>
-                    </div>
-                    <div>
-                        <div class="text-[10px] font-mono text-zinc-400 uppercase">GitHub</div>
-                        <div class="text-xs font-semibold text-zinc-900 dark:text-zinc-100">github.com/NayeemS25</div>
-                    </div>
-                </a>
+                        <a href="https://github.com/NayeemS25" target="_blank" rel="noopener noreferrer" class="p-4 rounded-2xl bg-space-900 border border-white/10 hover:border-cyber-blue/50 flex items-center justify-between group transition-all">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-xl bg-cyber-blue/20 text-cyber-blue flex items-center justify-center text-lg">
+                                    <i class="fab fa-github"></i>
+                                </div>
+                                <div>
+                                    <div class="text-xs font-bold text-white group-hover:text-cyber-blue transition-colors">GitHub Repositories</div>
+                                    <div class="text-[11px] font-mono text-slate-400">github.com/NayeemS25 (18+ repos)</div>
+                                </div>
+                            </div>
+                            <i class="fas fa-arrow-right text-xs text-slate-500 group-hover:text-cyber-blue group-hover:translate-x-1 transition-all"></i>
+                        </a>
 
+                        <button onclick="openResumeModal()" class="w-full py-3.5 rounded-xl bg-gradient-to-r from-cyber-blue to-cyber-indigo text-space-950 font-bold text-xs uppercase tracking-wider hover:shadow-xl transition-all flex items-center justify-center gap-2 mt-2">
+                            <i class="fas fa-file-arrow-down"></i> View Full Resume CV
+                        </button>
+                    </div>
+
+                </div>
             </div>
 
         </section>
@@ -915,43 +1032,42 @@
 
 
     <!-- FOOTER -->
-    <footer class="border-t border-zinc-200 dark:border-zinc-800 mt-20 py-8 px-4 sm:px-6 text-xs text-zinc-500">
-        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
+    <footer class="border-t border-white/10 py-8 px-4 sm:px-6 text-xs text-slate-500 bg-space-950">
+        <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
             <div>
-                © 2026 <strong class="text-zinc-700 dark:text-zinc-300">Nayeem S</strong> — AI & Machine Learning Engineer
+                © 2026 <strong class="text-white">Nayeem S</strong> — AI & Machine Learning Engineer
             </div>
-            <div class="flex items-center gap-4">
-                <a href="#hero" class="hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">Back to top ↑</a>
-            </div>
+            <a href="#hero" class="hover:text-cyber-blue transition-colors flex items-center gap-1">
+                <i class="fas fa-arrow-up"></i> Top
+            </a>
         </div>
     </footer>
 
 
-    <!-- RESUME MODAL VIEWER -->
-    <div id="resume-modal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs hidden items-center justify-center p-4">
-        <div class="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-xl max-w-3xl w-full max-h-[88vh] flex flex-col shadow-xl overflow-hidden">
+    <!-- RESUME MODAL -->
+    <div id="resume-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden items-center justify-center p-4">
+        <div class="bg-space-900 border border-white/15 rounded-2xl max-w-3xl w-full max-h-[88vh] flex flex-col shadow-2xl overflow-hidden">
             
-            <div class="px-5 py-3.5 bg-zinc-50 dark:bg-zinc-850 border-b border-zinc-200 dark:border-zinc-800 flex items-center justify-between">
+            <div class="px-5 py-3.5 bg-space-850 border-b border-white/10 flex items-center justify-between">
                 <div class="flex items-center gap-2">
-                    <i class="fas fa-file-pdf text-red-500"></i>
-                    <span class="font-bold text-xs sm:text-sm text-zinc-900 dark:text-zinc-100">Nayeem S — Resume / Curriculum Vitae</span>
+                    <i class="fas fa-file-pdf text-red-400"></i>
+                    <span class="font-bold text-xs sm:text-sm text-white">Nayeem S — Curriculum Vitae</span>
                 </div>
                 <div class="flex items-center gap-2">
-                    <button onclick="window.print()" class="px-2.5 py-1 rounded bg-zinc-200 dark:bg-zinc-700 text-[11px] font-medium text-zinc-800 dark:text-zinc-200">
+                    <button onclick="window.print()" class="px-3 py-1.5 rounded-lg bg-space-800 hover:bg-space-750 text-xs text-white border border-white/10">
                         <i class="fas fa-print mr-1"></i> Print
                     </button>
-                    <button onclick="closeResumeModal()" class="w-7 h-7 rounded flex items-center justify-center text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100">
+                    <button onclick="closeResumeModal()" class="w-8 h-8 rounded-lg bg-space-800 hover:bg-red-500/20 hover:text-red-400 text-slate-400 flex items-center justify-center">
                         <i class="fas fa-times"></i>
                     </button>
                 </div>
             </div>
 
-            <div class="p-6 overflow-y-auto space-y-5 text-xs text-zinc-700 dark:text-zinc-300 font-sans" id="printable-area">
-                
-                <div class="text-center border-b border-zinc-200 dark:border-zinc-800 pb-4">
-                    <h2 class="text-xl font-bold text-zinc-900 dark:text-zinc-100">NAYEEM S</h2>
-                    <div class="text-xs font-mono text-zinc-600 dark:text-zinc-400 mt-0.5">AI Engineer | Machine Learning Engineer | Data Scientist</div>
-                    <div class="flex flex-wrap items-center justify-center gap-3 text-zinc-500 text-[11px] mt-2 font-mono">
+            <div class="p-6 overflow-y-auto space-y-5 text-xs text-slate-300 font-sans" id="printable-resume">
+                <div class="text-center border-b border-white/10 pb-4">
+                    <h2 class="text-2xl font-extrabold text-white uppercase">NAYEEM S</h2>
+                    <div class="text-xs font-mono text-cyber-blue mt-0.5">AI Engineer | Machine Learning Engineer | Data Scientist</div>
+                    <div class="flex flex-wrap items-center justify-center gap-3 text-slate-400 text-[11px] mt-2 font-mono">
                         <span>nayeemfawaz30@gmail.com</span>
                         <span>•</span>
                         <span>+91 9003722241</span>
@@ -961,20 +1077,20 @@
                 </div>
 
                 <div>
-                    <h4 class="font-bold text-zinc-900 dark:text-zinc-100 uppercase tracking-wider text-[11px] border-b border-zinc-200 dark:border-zinc-800 pb-1 mb-1.5">Profile</h4>
+                    <h4 class="font-bold text-cyber-blue uppercase tracking-wider text-[11px] border-b border-white/10 pb-1 mb-1.5">Profile</h4>
                     <p class="leading-relaxed">
                         AI Engineer with hands-on experience building and deploying AI applications across NLP, Generative AI, Computer Vision, and multilingual language processing domains. Proficient in Python, PyTorch, TensorFlow, Scikit-learn, and Hugging Face, with practical experience in LLM fine-tuning, RAG pipelines, STT, TTS, and multilingual NLP.
                     </p>
                 </div>
 
                 <div>
-                    <h4 class="font-bold text-zinc-900 dark:text-zinc-100 uppercase tracking-wider text-[11px] border-b border-zinc-200 dark:border-zinc-800 pb-1 mb-1.5">Experience</h4>
+                    <h4 class="font-bold text-cyber-blue uppercase tracking-wider text-[11px] border-b border-white/10 pb-1 mb-1.5">Experience</h4>
                     <div class="space-y-2">
-                        <div class="flex justify-between font-semibold text-zinc-900 dark:text-zinc-100">
+                        <div class="flex justify-between font-bold text-white">
                             <span>Artificial Intelligence Engineer Intern — Ninja Media Creations</span>
-                            <span class="font-mono text-[11px] text-zinc-500">07/2026 – Present | Chennai</span>
+                            <span class="font-mono text-slate-400">07/2026 – Present | Chennai</span>
                         </div>
-                        <ul class="list-disc list-inside space-y-1 text-zinc-600 dark:text-zinc-400">
+                        <ul class="list-disc list-inside space-y-1 text-slate-300">
                             <li>Developing a computer vision lip-sync model using MuseTalk with emotion-aware facial expression synthesis.</li>
                             <li>Built Speech-to-Text and Text-to-Speech inference pipelines using ElevenLabs and Sarvam AI across Indian regional languages.</li>
                             <li>Developing a domain-specific ML model for Indian Railways query resolution on vernacular datasets.</li>
@@ -983,65 +1099,182 @@
                 </div>
 
                 <div>
-                    <h4 class="font-bold text-zinc-900 dark:text-zinc-100 uppercase tracking-wider text-[11px] border-b border-zinc-200 dark:border-zinc-800 pb-1 mb-1.5">Education</h4>
-                    <div class="flex justify-between">
-                        <span class="font-semibold text-zinc-800 dark:text-zinc-200">B.Tech - Artificial Intelligence and Data Science</span>
-                        <span class="font-mono text-zinc-500">CGPA: 7.5 (2022–2026)</span>
+                    <h4 class="font-bold text-cyber-blue uppercase tracking-wider text-[11px] border-b border-white/10 pb-1 mb-1.5">Key Projects</h4>
+                    <div class="space-y-2">
+                        <div>
+                            <strong class="text-white">1. AI Student Portfolio Generator (Impact-A-Thon Runner-Up):</strong> N8N & Supabase automated resume extraction pipeline.
+                        </div>
+                        <div>
+                            <strong class="text-white">2. Crime Data Analysis & Prediction:</strong> Statistical ANOVA hypothesis testing and Power BI visual analytics.
+                        </div>
+                        <div>
+                            <strong class="text-white">3. Legal Connect (3rd Prize National Hackathon):</strong> AI-powered legal RAG assistant with Flask REST API.
+                        </div>
                     </div>
-                    <div class="text-zinc-500">Aalim Muhammed Salegh College Of Engineering, Chennai</div>
                 </div>
 
+                <div>
+                    <h4 class="font-bold text-cyber-blue uppercase tracking-wider text-[11px] border-b border-white/10 pb-1 mb-1.5">Education</h4>
+                    <div class="flex justify-between font-bold text-white">
+                        <span>B.Tech - Artificial Intelligence and Data Science</span>
+                        <span class="font-mono text-emerald-400">CGPA: 7.5 (2022–2026)</span>
+                    </div>
+                    <div class="text-slate-400">Aalim Muhammed Salegh College Of Engineering, Chennai</div>
+                </div>
             </div>
 
         </div>
     </div>
 
 
-    <!-- JAVASCRIPT: Clean, Lightweight Logic -->
+    <!-- JAVASCRIPT ANIMATIONS & LOGIC -->
     <script>
-        // THEME TOGGLING (Clean Light/Dark with persistence)
-        function initTheme() {
-            const savedTheme = localStorage.getItem('theme');
-            if (savedTheme === 'light') {
-                document.documentElement.classList.remove('dark');
+        // TYPEWRITER ANIMATION
+        const phrases = [
+            "AI Engineer & Machine Learning Specialist",
+            "Fine-Tuning Transformers & LLM RAG Systems",
+            "Building Real-Time Lip-Sync & Computer Vision",
+            "Multilingual Speech Pipelines (Sarvam AI & ElevenLabs)"
+        ];
+        let pIdx = 0, cIdx = 0, isDel = false;
+        const typeEl = document.getElementById('typewriter');
+
+        function loopType() {
+            const current = phrases[pIdx];
+            if (isDel) {
+                typeEl.textContent = current.substring(0, cIdx - 1);
+                cIdx--;
             } else {
-                document.documentElement.classList.add('dark');
+                typeEl.textContent = current.substring(0, cIdx + 1);
+                cIdx++;
+            }
+
+            let speed = isDel ? 35 : 75;
+
+            if (!isDel && cIdx === current.length) {
+                speed = 2000;
+                isDel = true;
+            } else if (isDel && cIdx === 0) {
+                isDel = false;
+                pIdx = (pIdx + 1) % phrases.length;
+                speed = 400;
+            }
+
+            setTimeout(loopType, speed);
+        }
+        document.addEventListener('DOMContentLoaded', loopType);
+
+        // MOUSE INTERACTIVE CONSTELLATION CANVAS
+        const canvas = document.getElementById('constellation-canvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+        let mouse = { x: null, y: null, radius: 140 };
+
+        function setCanvasSize() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', () => {
+            setCanvasSize();
+            initConstellation();
+        });
+        window.addEventListener('mousemove', (e) => {
+            mouse.x = e.x;
+            mouse.y = e.y;
+        });
+        window.addEventListener('mouseout', () => {
+            mouse.x = null;
+            mouse.y = null;
+        });
+        setCanvasSize();
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.vx = (Math.random() - 0.5) * 0.9;
+                this.vy = (Math.random() - 0.5) * 0.9;
+                this.radius = Math.random() * 2 + 1;
+            }
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+                if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+                if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+
+                // Mouse repel / attract
+                if (mouse.x != null) {
+                    let dx = mouse.x - this.x;
+                    let dy = mouse.y - this.y;
+                    let distance = Math.sqrt(dx * dx + dy * dy);
+                    if (distance < mouse.radius) {
+                        const forceDirectionX = dx / distance;
+                        const forceDirectionY = dy / distance;
+                        const force = (mouse.radius - distance) / mouse.radius;
+                        this.x -= forceDirectionX * force * 1.5;
+                        this.y -= forceDirectionY * force * 1.5;
+                    }
+                }
+            }
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                ctx.fillStyle = 'rgba(56, 189, 248, 0.7)';
+                ctx.fill();
             }
         }
-        initTheme();
 
-        function toggleTheme() {
-            if (document.documentElement.classList.contains('dark')) {
-                document.documentElement.classList.remove('dark');
-                localStorage.setItem('theme', 'light');
-            } else {
-                document.documentElement.classList.add('dark');
-                localStorage.setItem('theme', 'dark');
+        function initConstellation() {
+            particles = [];
+            const count = Math.min(Math.floor(window.innerWidth / 16), 65);
+            for (let i = 0; i < count; i++) {
+                particles.push(new Particle());
             }
         }
+        initConstellation();
 
-        // MOBILE NAV TOGGLE
+        function animateConstellation() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (let i = 0; i < particles.length; i++) {
+                particles[i].update();
+                particles[i].draw();
+                for (let j = i + 1; j < particles.length; j++) {
+                    const dx = particles[i].x - particles[j].x;
+                    const dy = particles[i].y - particles[j].y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist < 130) {
+                        ctx.beginPath();
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.strokeStyle = `rgba(56, 189, 248, ${0.22 * (1 - dist / 130)})`;
+                        ctx.lineWidth = 0.7;
+                        ctx.stroke();
+                    }
+                }
+            }
+            requestAnimationFrame(animateConstellation);
+        }
+        animateConstellation();
+
+        // MOBILE NAV
         function toggleMobileNav() {
-            const nav = document.getElementById('mobile-nav');
-            nav.classList.toggle('hidden');
+            document.getElementById('mobile-nav').classList.toggle('hidden');
         }
 
         // PROJECT FILTERING
-        function filterCategory(cat) {
-            const pills = document.querySelectorAll('.filter-pill');
-            pills.forEach(p => {
-                if (p.getAttribute('data-cat') === cat) {
-                    p.classList.add('active', 'bg-white', 'dark:bg-zinc-800', 'text-zinc-900', 'dark:text-zinc-100', 'font-semibold', 'shadow-xs');
-                    p.classList.remove('text-zinc-600', 'dark:text-zinc-400');
+        function filterProjects(cat) {
+            document.querySelectorAll('.proj-filter').forEach(btn => {
+                if (btn.getAttribute('data-f') === cat) {
+                    btn.classList.add('bg-cyber-blue', 'text-space-950', 'font-bold');
+                    btn.classList.remove('text-slate-300');
                 } else {
-                    p.classList.remove('active', 'bg-white', 'dark:bg-zinc-800', 'text-zinc-900', 'dark:text-zinc-100', 'font-semibold', 'shadow-xs');
-                    p.classList.add('text-zinc-600', 'dark:text-zinc-400');
+                    btn.classList.remove('bg-cyber-blue', 'text-space-950', 'font-bold');
+                    btn.classList.add('text-slate-300');
                 }
             });
 
-            const cards = document.querySelectorAll('.project-item');
-            cards.forEach(card => {
-                if (cat === 'all' || card.getAttribute('data-category') === cat) {
+            document.querySelectorAll('.project-card').forEach(card => {
+                if (cat === 'all' || card.getAttribute('data-cat') === cat) {
                     card.style.display = 'flex';
                 } else {
                     card.style.display = 'none';
@@ -1049,56 +1282,97 @@
             });
         }
 
-        // SANDBOX LOGIC
-        function setSandboxTab(tab) {
-            const emotionPanel = document.getElementById('sb-panel-emotion');
-            const legalPanel = document.getElementById('sb-panel-legal');
-            const emotionBtn = document.getElementById('sb-btn-emotion');
-            const legalBtn = document.getElementById('sb-btn-legal');
+        // MINI CLI
+        function runCli(cmd) {
+            const out = document.getElementById('cli-output');
+            if (cmd === 'skills') {
+                out.innerHTML += `<div class="text-cyber-blue mt-1">$ nayeem.skills</div><div class="text-slate-300">PyTorch, Transformers, YOLOv8, MuseTalk, Sarvam AI, Scikit-learn, Power BI</div>`;
+            } else if (cmd === 'internship') {
+                out.innerHTML += `<div class="text-cyber-blue mt-1">$ nayeem.internship</div><div class="text-purple-300">Ninja Media Creations: MuseTalk lip-sync & Sarvam STT/TTS pipelines</div>`;
+            } else if (cmd === 'awards') {
+                out.innerHTML += `<div class="text-cyber-blue mt-1">$ nayeem.awards</div><div class="text-amber-300">🥈 Impact-A-Thon Runner-Up | 🥉 SAMURAI 3rd Prize</div>`;
+            } else if (cmd === 'clear') {
+                out.innerHTML = `<div class="text-slate-500">Terminal buffer cleared.</div>`;
+            }
+            out.scrollTop = out.scrollHeight;
+        }
+
+        // SANDBOX SWITCHER
+        function switchSandbox(tab) {
+            const emoP = document.getElementById('panel-emotion');
+            const legP = document.getElementById('panel-legal');
+            const emoB = document.getElementById('tab-sb-emo');
+            const legB = document.getElementById('tab-sb-leg');
 
             if (tab === 'emotion') {
-                emotionPanel.classList.remove('hidden');
-                legalPanel.classList.add('hidden');
-                emotionBtn.className = "px-3 py-1.5 rounded-lg bg-zinc-900 dark:bg-zinc-100 text-zinc-50 dark:text-zinc-900 text-xs font-semibold transition-all";
-                legalBtn.className = "px-3 py-1.5 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 text-xs font-medium transition-all";
+                emoP.classList.remove('hidden');
+                legP.classList.add('hidden');
+                emoB.className = "px-3.5 py-1.5 rounded-lg bg-cyber-blue text-space-950 font-bold transition-all";
+                legB.className = "px-3.5 py-1.5 rounded-lg text-slate-300 hover:text-white transition-all";
             } else {
-                emotionPanel.classList.add('hidden');
-                legalPanel.classList.remove('hidden');
-                legalBtn.className = "px-3 py-1.5 rounded-lg bg-zinc-900 dark:bg-zinc-100 text-zinc-50 dark:text-zinc-900 text-xs font-semibold transition-all";
-                emotionBtn.className = "px-3 py-1.5 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 text-xs font-medium transition-all";
+                emoP.classList.add('hidden');
+                legP.classList.remove('hidden');
+                legB.className = "px-3.5 py-1.5 rounded-lg bg-cyber-blue text-space-950 font-bold transition-all";
+                emoB.className = "px-3.5 py-1.5 rounded-lg text-slate-300 hover:text-white transition-all";
             }
         }
 
-        function quickFillEmotion(text) {
-            document.getElementById('demo-text-input').value = text;
-            runInference();
+        function fillEmo(txt) {
+            document.getElementById('emo-text').value = txt;
+            runEmoInference();
         }
 
-        function runInference() {
-            const txt = document.getElementById('demo-text-input').value.toLowerCase();
-            const label = document.getElementById('top-emotion-label');
+        function runEmoInference() {
+            const txt = document.getElementById('emo-text').value.toLowerCase();
+            const btn = document.getElementById('emo-run-btn');
+            const label = document.getElementById('primary-emo-label');
+            const bars = document.getElementById('bars-container');
 
-            if (txt.includes('worry') || txt.includes('worried') || txt.includes('timeline') || txt.includes('stress')) {
-                label.textContent = "Primary: Anxiety (91.8%)";
-            } else if (txt.includes('astonish') || txt.includes('brilliant') || txt.includes('transformer')) {
-                label.textContent = "Primary: Admiration (95.4%)";
-            } else {
-                label.textContent = "Primary: Gratitude (94.2%)";
-            }
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
+
+            setTimeout(() => {
+                btn.innerHTML = '<i class="fas fa-play"></i> Run Inference';
+                
+                let scores = { gratitude: 94.2, joy: 81.5, admiration: 67.3 };
+                if (txt.includes('worried') || txt.includes('overwhelm') || txt.includes('fear')) {
+                    scores = { anxiety: 92.4, fear: 84.1, nervousness: 68.0 };
+                } else if (txt.includes('astonish') || txt.includes('revolutionary')) {
+                    scores = { admiration: 95.8, surprise: 88.2, excitement: 79.4 };
+                }
+
+                const top = Object.entries(scores)[0];
+                label.textContent = `Primary: ${top[0].charAt(0).toUpperCase() + top[0].slice(1)} (${top[1]}%)`;
+
+                let html = '';
+                const colors = ['from-cyber-blue to-cyan-400', 'from-purple-500 to-indigo-500', 'from-emerald-500 to-teal-400'];
+                let i = 0;
+                for (const [k, v] of Object.entries(scores)) {
+                    html += `
+                    <div>
+                        <div class="flex justify-between text-xs font-mono mb-1">
+                            <span class="text-slate-200 capitalize">${k}</span>
+                            <span class="text-cyber-blue font-bold">${v}%</span>
+                        </div>
+                        <div class="w-full h-2 bg-space-850 rounded-full overflow-hidden">
+                            <div class="h-full bg-gradient-to-r ${colors[i % colors.length]} rounded-full transition-all duration-500" style="width: ${v}%"></div>
+                        </div>
+                    </div>`;
+                    i++;
+                }
+                bars.innerHTML = html;
+            }, 300);
         }
 
-        function runLegalRag() {
-            const query = document.getElementById('legal-input').value;
-            const output = document.getElementById('legal-output');
-            output.innerHTML = `
-                <div class="flex justify-between font-mono text-zinc-500 text-[11px] border-b border-zinc-200 dark:border-zinc-850 pb-1.5">
-                    <span>Knowledge Source: Supreme Court Precedents & ICA</span>
-                    <span class="text-emerald-600 dark:text-emerald-400">Match: 96.4%</span>
-                </div>
-                <p class="text-zinc-700 dark:text-zinc-300 leading-relaxed">
-                    Under Section 73 of the Indian Contract Act, compensation is awarded for direct and natural loss arising in the ordinary course of things. Remote losses are strictly disallowed.
-                </p>
-            `;
+        function runLegInference() {
+            const btn = document.getElementById('leg-run-btn');
+            const summary = document.getElementById('leg-summary');
+
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Ingesting Vectors...';
+
+            setTimeout(() => {
+                btn.innerHTML = '<i class="fas fa-magnifying-glass"></i> Execute Legal RAG Query';
+                summary.innerHTML = `<strong class="text-cyber-blue">Case Outcome & Precedent Analysis (Section 73 ICA):</strong><br>Damages are awarded strictly for natural and proximate injuries resulting from the breach. Indirect losses are inadmissible without prior notice.`;
+            }, 350);
         }
 
         // RESUME MODAL
