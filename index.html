@@ -632,8 +632,92 @@
                 <!-- Projects Grid -->
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="projects-grid">
 
-                    <!-- PROJECT 1: Legal Connect -->
-                    <div class="project-card glass-card rounded-2xl p-6 border border-white/10 flex flex-col justify-between glass-card-hover" data-category="genai">
+                    <!-- PROJECT 1: AI Student Portfolio Generator -->
+                    <div class="project-card glass-card rounded-2xl p-6 border border-amber-500/30 flex flex-col justify-between glass-card-hover" data-category="genai">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="px-2.5 py-1 rounded-full bg-amber-500/15 border border-amber-500/30 text-amber-300 text-[11px] font-mono flex items-center gap-1.5">
+                                    <i class="fas fa-medal text-xs"></i> Runner-Up Impact-A-Thon
+                                </span>
+                                <span class="text-xs font-mono text-slate-500">09/2025</span>
+                            </div>
+
+                            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-brand-400 transition-colors">
+                                AI Student Portfolio Generator
+                            </h3>
+                            
+                            <p class="text-slate-400 text-xs sm:text-sm leading-relaxed mb-4">
+                                Automated AI platform developed during a 24-hour national hackathon that parses unstructured student resumes via <strong class="text-slate-200">N8N webhooks</strong>, extracts structured skill vectors into <strong class="text-slate-200">Supabase</strong>, and automatically compiles dynamic responsive web portfolios.
+                            </p>
+
+                            <ul class="text-xs text-slate-300 space-y-1.5 mb-5 list-disc list-inside">
+                                <li>N8N workflow automation with AI resume extraction</li>
+                                <li>Supabase backend with schema validation & user auth</li>
+                                <li>Instant dynamic portfolio site generation</li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <div class="flex flex-wrap gap-1.5 mb-4 font-mono text-[10px]">
+                                <span class="px-2 py-0.5 rounded bg-dark-800 text-amber-300 border border-amber-500/20">N8N</span>
+                                <span class="px-2 py-0.5 rounded bg-dark-800 text-emerald-300 border border-emerald-500/20">Supabase</span>
+                                <span class="px-2 py-0.5 rounded bg-dark-800 text-brand-300 border border-brand-500/20">AI Webhooks</span>
+                                <span class="px-2 py-0.5 rounded bg-dark-800 text-cyan-300 border border-cyan-500/20">Next.js</span>
+                            </div>
+
+                            <div class="flex items-center gap-3 pt-3 border-t border-white/5">
+                                <a href="https://github.com/NayeemS25/AI-portfolio-Generator" target="_blank" rel="noopener noreferrer" class="flex-1 py-2 rounded-lg bg-dark-800 hover:bg-dark-700 text-white text-xs font-semibold text-center border border-white/10 flex items-center justify-center gap-1.5 transition-colors">
+                                    <i class="fab fa-github"></i> Code Repository
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- PROJECT 2: Crime Data Analysis -->
+                    <div class="project-card glass-card rounded-2xl p-6 border border-purple-500/30 flex flex-col justify-between glass-card-hover" data-category="ml">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="px-2.5 py-1 rounded-full bg-purple-500/15 border border-purple-500/30 text-purple-300 text-[11px] font-mono flex items-center gap-1.5">
+                                    <i class="fas fa-chart-pie text-xs"></i> Analytics & Statistics
+                                </span>
+                                <span class="text-xs font-mono text-slate-500">09/2025</span>
+                            </div>
+
+                            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-purple-400 transition-colors">
+                                Crime Data Analysis & Trend Prediction
+                            </h3>
+                            
+                            <p class="text-slate-400 text-xs sm:text-sm leading-relaxed mb-4">
+                                Statistical modeling on multi-state Indian crime datasets using Python & Pandas. Performed <strong class="text-slate-200">ANOVA and hypothesis testing</strong> to validate regional variance, built Scikit-learn regression models, and developed executive <strong class="text-slate-200">Power BI</strong> visual dashboards.
+                            </p>
+
+                            <ul class="text-xs text-slate-300 space-y-1.5 mb-5 list-disc list-inside">
+                                <li>ANOVA & hypothesis testing for statistical validation</li>
+                                <li>Predictive regression models forecasting future crime trends</li>
+                                <li>Interactive Power BI and Seaborn analytics dashboards</li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <div class="flex flex-wrap gap-1.5 mb-4 font-mono text-[10px]">
+                                <span class="px-2 py-0.5 rounded bg-dark-800 text-purple-300 border border-purple-500/20">Power BI</span>
+                                <span class="px-2 py-0.5 rounded bg-dark-800 text-amber-300 border border-amber-500/20">ANOVA & Stats</span>
+                                <span class="px-2 py-0.5 rounded bg-dark-800 text-brand-300 border border-brand-500/20">Scikit-learn</span>
+                                <span class="px-2 py-0.5 rounded bg-dark-800 text-emerald-300 border border-emerald-500/20">Pandas</span>
+                            </div>
+
+                            <div class="flex items-center gap-3 pt-3 border-t border-white/5">
+                                <a href="https://github.com/NayeemS25/Crime-Data-Analysis" target="_blank" rel="noopener noreferrer" class="flex-1 py-2 rounded-lg bg-dark-800 hover:bg-dark-700 text-white text-xs font-semibold text-center border border-white/10 flex items-center justify-center gap-1.5 transition-colors">
+                                    <i class="fab fa-github"></i> Code Repository
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- PROJECT 3: Legal Connect -->
+                    <div class="project-card glass-card rounded-2xl p-6 border border-cyan-500/30 flex flex-col justify-between glass-card-hover" data-category="genai">
                         <div>
                             <!-- Header Badges -->
                             <div class="flex items-center justify-between mb-4">
@@ -679,7 +763,7 @@
                     </div>
 
 
-                    <!-- PROJECT 2: Text Emotion Detection -->
+                    <!-- PROJECT 4: Text Emotion Detection -->
                     <div class="project-card glass-card rounded-2xl p-6 border border-white/10 flex flex-col justify-between glass-card-hover" data-category="genai">
                         <div>
                             <div class="flex items-center justify-between mb-4">
@@ -724,7 +808,7 @@
                     </div>
 
 
-                    <!-- PROJECT 3: Marine Debris Detection -->
+                    <!-- PROJECT 5: Marine Debris Detection -->
                     <div class="project-card glass-card rounded-2xl p-6 border border-white/10 flex flex-col justify-between glass-card-hover" data-category="cv">
                         <div>
                             <div class="flex items-center justify-between mb-4">
@@ -759,90 +843,6 @@
 
                             <div class="flex items-center gap-3 pt-3 border-t border-white/5">
                                 <a href="https://github.com/NayeemS25/marine-debris-prediction" target="_blank" rel="noopener noreferrer" class="flex-1 py-2 rounded-lg bg-dark-800 hover:bg-dark-700 text-white text-xs font-semibold text-center border border-white/10 flex items-center justify-center gap-1.5 transition-colors">
-                                    <i class="fab fa-github"></i> Code Repository
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <!-- PROJECT 4: Crime Data Analysis -->
-                    <div class="project-card glass-card rounded-2xl p-6 border border-white/10 flex flex-col justify-between glass-card-hover" data-category="ml">
-                        <div>
-                            <div class="flex items-center justify-between mb-4">
-                                <span class="px-2.5 py-1 rounded-full bg-purple-500/15 border border-purple-500/30 text-purple-300 text-[11px] font-mono flex items-center gap-1.5">
-                                    <i class="fas fa-chart-pie text-xs"></i> Analytics & Statistics
-                                </span>
-                                <span class="text-xs font-mono text-slate-500">09/2025</span>
-                            </div>
-
-                            <h3 class="text-xl font-bold text-white mb-2">
-                                Crime Data Analysis & Trend Prediction
-                            </h3>
-                            
-                            <p class="text-slate-400 text-xs sm:text-sm leading-relaxed mb-4">
-                                Statistical modeling on multi-state Indian crime datasets. Performed ANOVA and hypothesis testing to validate regional variance, built Scikit-learn regression models, and developed executive Power BI visual dashboards.
-                            </p>
-
-                            <ul class="text-xs text-slate-300 space-y-1.5 mb-5 list-disc list-inside">
-                                <li>ANOVA & hypothesis testing for statistical validation</li>
-                                <li>Predictive regression models forecasting future crime trends</li>
-                                <li>Interactive Power BI and Seaborn analytics dashboards</li>
-                            </ul>
-                        </div>
-
-                        <div>
-                            <div class="flex flex-wrap gap-1.5 mb-4 font-mono text-[10px]">
-                                <span class="px-2 py-0.5 rounded bg-dark-800 text-purple-300 border border-purple-500/20">Power BI</span>
-                                <span class="px-2 py-0.5 rounded bg-dark-800 text-amber-300 border border-amber-500/20">ANOVA & Stats</span>
-                                <span class="px-2 py-0.5 rounded bg-dark-800 text-brand-300 border border-brand-500/20">Scikit-learn</span>
-                                <span class="px-2 py-0.5 rounded bg-dark-800 text-emerald-300 border border-emerald-500/20">Pandas</span>
-                            </div>
-
-                            <div class="flex items-center gap-3 pt-3 border-t border-white/5">
-                                <a href="https://github.com/NayeemS25/Crime-Data-Analysis" target="_blank" rel="noopener noreferrer" class="flex-1 py-2 rounded-lg bg-dark-800 hover:bg-dark-700 text-white text-xs font-semibold text-center border border-white/10 flex items-center justify-center gap-1.5 transition-colors">
-                                    <i class="fab fa-github"></i> Code Repository
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <!-- PROJECT 5: AI Student Portfolio Generator -->
-                    <div class="project-card glass-card rounded-2xl p-6 border border-white/10 flex flex-col justify-between glass-card-hover" data-category="genai">
-                        <div>
-                            <div class="flex items-center justify-between mb-4">
-                                <span class="px-2.5 py-1 rounded-full bg-amber-500/15 border border-amber-500/30 text-amber-300 text-[11px] font-mono flex items-center gap-1.5">
-                                    <i class="fas fa-medal text-xs"></i> Runner-Up Impact-A-Thon
-                                </span>
-                                <span class="text-xs font-mono text-slate-500">09/2025</span>
-                            </div>
-
-                            <h3 class="text-xl font-bold text-white mb-2">
-                                AI Student Portfolio Generator
-                            </h3>
-                            
-                            <p class="text-slate-400 text-xs sm:text-sm leading-relaxed mb-4">
-                                Automated system built during a 24-hour national hackathon that parses unstructured student resumes via N8N webhooks, extracts competencies with Supabase vector storage, and compiles production-ready web portfolios.
-                            </p>
-
-                            <ul class="text-xs text-slate-300 space-y-1.5 mb-5 list-disc list-inside">
-                                <li>N8N workflow automation with AI resume extraction</li>
-                                <li>Supabase backend with schema validation & user auth</li>
-                                <li>Instant dynamic portfolio site generation</li>
-                            </ul>
-                        </div>
-
-                        <div>
-                            <div class="flex flex-wrap gap-1.5 mb-4 font-mono text-[10px]">
-                                <span class="px-2 py-0.5 rounded bg-dark-800 text-amber-300 border border-amber-500/20">N8N</span>
-                                <span class="px-2 py-0.5 rounded bg-dark-800 text-emerald-300 border border-emerald-500/20">Supabase</span>
-                                <span class="px-2 py-0.5 rounded bg-dark-800 text-brand-300 border border-brand-500/20">AI Webhooks</span>
-                                <span class="px-2 py-0.5 rounded bg-dark-800 text-cyan-300 border border-cyan-500/20">Next.js</span>
-                            </div>
-
-                            <div class="flex items-center gap-3 pt-3 border-t border-white/5">
-                                <a href="https://github.com/NayeemS25/AI-portfolio-Generator" target="_blank" rel="noopener noreferrer" class="flex-1 py-2 rounded-lg bg-dark-800 hover:bg-dark-700 text-white text-xs font-semibold text-center border border-white/10 flex items-center justify-center gap-1.5 transition-colors">
                                     <i class="fab fa-github"></i> Code Repository
                                 </a>
                             </div>
